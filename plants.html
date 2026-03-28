@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>النباتات البرية | Wildlife Plants</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg-deep: #2c1e16; --bg-section: #3a281d; --text-beige: #f0e5d8; --text-dim: #c8b49c; --accent-color: #9a7b5c; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-deep); color: var(--text-beige); font-family: 'Tajawal', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; transition: direction 0.3s ease; }
+        h1, h2, h3, .serif-text { font-family: 'Amiri', serif; font-weight: normal; }
+        :lang(en) h1, :lang(en) h2, :lang(en) h3, :lang(en) .serif-text { font-family: 'Playfair Display', serif; }
+        [lang="ar"] .lang-en { display: none !important; }
+        [lang="en"] .lang-ar { display: none !important; }
+
+        /* تنسيقات النافبار */
+        nav { background-color: rgba(44, 30, 22, 0.95); backdrop-filter: blur(10px); color: var(--text-beige); display: flex; justify-content: space-between; align-items: center; padding: 15px 50px; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(240, 229, 216, 0.05); }
+        .nav-left { display: flex; align-items: center; gap: 20px; }
+        [dir="rtl"] .logo-container { border-left: 1px solid var(--accent-color); padding-left: 20px; }
+        [dir="ltr"] .logo-container { border-right: 1px solid var(--accent-color); padding-right: 20px; }
+        .logo-container img { height: 60px; width: auto; object-fit: contain; display: block; }
+        .nav-date { font-size: 14px; color: var(--text-dim); }
+        .nav-right { display: flex; align-items: center; gap: 20px; }
+        .nav-right a { color: var(--text-beige); text-decoration: none; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; transition: color 0.3s ease; cursor: pointer;}
+        .nav-right a:hover { color: #ffffff; }
+        .lang-toggle-btn { background: transparent; border: 1px solid var(--accent-color); color: var(--text-beige); padding: 5px 15px; border-radius: 20px; cursor: pointer; font-family: 'Tajawal', sans-serif; transition: all 0.3s ease; }
+        .lang-toggle-btn:hover { background: var(--text-beige); color: var(--bg-deep); }
+
+        /* =========================================
+           تنسيقات الهيدر
+           ========================================= */
+        .gallery-header { 
+            position: relative; 
+            text-align: center; 
+            padding: 150px 20px 100px; 
+            overflow: hidden;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid rgba(240, 229, 216, 0.05);
+        }
+
+        .header-video {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%; min-height: 100%;
+            width: auto; height: auto;
+            z-index: 1;
+            object-fit: cover;
+        }
+
+        .header-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(44, 30, 22, 0.4), rgba(44, 30, 22, 0.95));
+            z-index: 2;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+        }
+
+        .gallery-header h1 { font-size: 60px; color: var(--text-beige); letter-spacing: 2px; text-shadow: 0 5px 15px rgba(0,0,0,0.8); margin: 0; }
+        .gallery-header p { color: var(--text-dim); font-size: 24px; margin-top: 15px; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
+
+        /* حاوية أزرار الفيديو */
+        .video-controls {
+            position: absolute;
+            bottom: 30px;
+            right: 40px; 
+            z-index: 10;
+            display: flex;
+            gap: 15px;
+        }
+        
+        [dir="ltr"] .video-controls { right: auto; left: 40px; }
+
+        /* تصميم الأزرار الشفافة الراقية */
+        .glass-btn {
+            background: rgba(255, 255, 255, 0.03); 
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(240, 229, 216, 0.3);
+            color: var(--text-beige);
+            width: 50px; 
+            height: 50px; 
+            border-radius: 50%; 
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            padding: 0;
+        }
+
+        .glass-btn svg { width: 22px; height: 22px; stroke: currentColor; stroke-width: 1.5; fill: none; transition: transform 0.3s ease; }
+        .glass-btn:hover { background: rgba(240, 229, 216, 0.15); border-color: rgba(240, 229, 216, 0.8); transform: translateY(-3px); color: #ffffff; }
+        .glass-btn:hover svg { transform: scale(1.1); }
+
+        /* ========================================= */
+
+        .animals-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; padding: 60px 10% 100px; max-width: 1400px; margin: 0 auto; }
+        
+        /* جعل البطاقة تعمل كرابط */
+        .animal-link-card { display: block; text-decoration: none; color: inherit; }
+
+        .animal-item { position: relative; height: 600px; border-radius: 8px; overflow: hidden; display: flex; align-items: flex-end; justify-content: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5); cursor: pointer; }
+        .animal-item img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; transition: transform 1s ease, filter 1s ease; filter: brightness(0.8) sepia(10%); }
+        .animal-item::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 60%; background: linear-gradient(to top, rgba(26,24,22,0.95), transparent); z-index: 2; }
+        .animal-item:hover img { transform: scale(1.05); filter: brightness(1) sepia(0%); }
+        .animal-info { position: relative; z-index: 3; text-align: center; padding: 40px 20px; width: 100%; transition: transform 0.4s ease; transform: translateY(30px); }
+        .animal-item:hover .animal-info { transform: translateY(0); }
+        .animal-info h3 { font-size: 38px; color: var(--text-beige); margin-bottom: 10px; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
+        
+        /* تنسيقات معلومات النشر والمكان */
+        .info-details { opacity: 0; transition: opacity 0.4s ease; transition-delay: 0.1s; }
+        .animal-item:hover .info-details { opacity: 1; }
+        .info-details .location { font-size: 18px; color: var(--accent-color); font-weight: bold; margin-bottom: 8px; letter-spacing: 1px; }
+        .info-details .meta { font-size: 14px; color: var(--text-dim); display: flex; justify-content: center; gap: 15px; }
+        [dir="ltr"] .info-details .meta { font-family: 'Playfair Display', serif; }
+
+        .bottom-section { background-color: var(--bg-deep); padding: 100px 20px; text-align: center; border-top: 1px solid rgba(240, 229, 216, 0.05); }
+        .bottom-logo img { height: 120px; width: auto; margin: 0 auto 30px auto; display: block; object-fit: contain; }
+        .bottom-date { font-size: 24px; line-height: 1.8; color: var(--text-dim); }
+
+        @media (max-width: 1000px) { .animals-grid { grid-template-columns: 1fr; padding: 40px 5%; } .animal-item { height: 500px; } }
+        @media (max-width: 768px) { nav { flex-direction: column; padding: 20px; gap: 15px; } .nav-left, .nav-right { width: 100%; justify-content: center; flex-wrap: wrap; } [dir="rtl"] .logo-container, [dir="ltr"] .logo-container { border: none; padding: 0; } .gallery-header h1 { font-size: 40px; } .animal-item { height: 400px; } .animal-info { transform: translateY(0); } .info-details { opacity: 1; } .video-controls { bottom: 15px; right: 15px; gap: 10px; } [dir="ltr"] .video-controls { left: 15px; } .glass-btn { width: 42px; height: 42px; } .glass-btn svg { width: 18px; height: 18px; } }
+        
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 1s ease, transform 1s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+
+<div id="navbar-container" style="position: sticky; top: 0; z-index: 100;"></div>
+
+    <div class="gallery-header fade-in">
+        
+        <video id="bgVideo" class="header-video" autoplay loop muted playsinline>
+            <source src="https://i.imgur.com/r9T19F4.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        
+        <div class="header-overlay"></div>
+        
+        <div class="header-content">
+            <h1>
+                <span class="lang-ar">نباتات براري أبوظبي</span>
+                <span class="lang-en">Flora of Abu Dhabi</span>
+            </h1>
+            <p>
+                <span class="lang-ar">جذور تعانق الأرض وتنبض بالحياة</span>
+                <span class="lang-en">Roots embracing the earth, pulsing with life</span>
+            </p>
+        </div>
+
+        <div class="video-controls">
+            <button class="glass-btn" onclick="toggleAudio()" title="Sound">
+                <span id="audioIcon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                        <line x1="23" y1="1" x2="1" y2="23"></line>
+                    </svg>
+                </span>
+            </button>
+            <button class="glass-btn" onclick="openFullscreen()" title="Fullscreen">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <div class="animals-grid">
+        
+        <a href="https://www.alittihad.ae/news/%D8%A7%D9%84%D8%A5%D9%85%D8%A7%D8%B1%D8%A7%D8%AA/4504100/%D8%BA%D8%A7%D8%A8%D8%A7%D8%AA-%D8%A7%D9%84%D9%82%D8%B1%D9%85-%D9%81%D9%8A-%D8%A3%D8%A8%D9%88%D8%B8%D8%A8%D9%8A-%D9%83%D9%86%D8%B2-%D8%A8%D9%8A%D8%A6%D9%8A-%D9%88%D9%88%D8%AC%D9%87%D8%A9-%D8%B3%D9%8A%D8%A7%D8%AD%D9%8A%D8%A9" target="_blank" class="animal-link-card fade-in">
+            <div class="animal-item">
+                <img src="https://cdn1-m.alittihad.ae/store/archive/image/2024/7/25/b377c03a-7cb2-4535-990b-4f47c6ba97fb.jpg" alt="غابات القرم">
+                <div class="animal-info">
+                    <h3>
+                        <span class="lang-ar">غابات القرم</span>
+                        <span class="lang-en">Mangrove Forests</span>
+                    </h3>
+                    <div class="info-details">
+                        <div class="location">
+                            <span class="lang-ar">منتزه القرم الوطني - أبوظبي</span>
+                            <span class="lang-en">Mangrove National Park - Abu Dhabi</span>
+                        </div>
+                        <div class="meta">
+                            <span><span class="lang-ar">الناشر: جريدة الاتحاد</span><span class="lang-en">Publisher: Al Ittihad</span></span>
+                            <span><span class="lang-ar">التاريخ: 25 يوليو 2024</span><span class="lang-en">Date: July 25, 2024</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        <a href="https://www.ead.gov.ae/en" target="_blank" class="animal-link-card fade-in" style="transition-delay: 0.2s;">
+            <div class="animal-item">
+                <img src="https://www.ead.gov.ae/-/media/Project/EAD/EAD/Biodiversity/NewImages/Plants/Ghaf---resized.jpg" alt="شجرة الغاف">
+                <div class="animal-info">
+                    <h3>
+                        <span class="lang-ar">شجرة الغاف</span>
+                        <span class="lang-en">Ghaf Tree</span>
+                    </h3>
+                    <div class="info-details">
+                        <div class="location">
+                            <span class="lang-ar">صحراء أبوظبي</span>
+                            <span class="lang-en">Abu Dhabi Desert</span>
+                        </div>
+                        <div class="meta">
+                            <span><span class="lang-ar">الناشر: هيئة البيئة - أبوظبي</span><span class="lang-en">Publisher: Environment Agency - AD</span></span>
+                            <span><span class="lang-ar">التاريخ: 22 مايو 2022</span><span class="lang-en">Date: 22 May 2022</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        <a href="https://ar.wikipedia.org/wiki/%D9%87%D9%86%D8%AF%D8%A8%D8%A7%D8%A9_%D8%A8%D8%B1%D9%8A%D8%A9" target="_blank" class="animal-link-card fade-in">
+            <div class="animal-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Cichorium_intybus003.JPG" alt="زهرة الهندباء البرية">
+                <div class="animal-info">
+                    <h3>
+                        <span class="lang-ar">زهرة الهندباء البرية</span>
+                        <span class="lang-en">Wild Chicory</span>
+                    </h3>
+                    <div class="info-details">
+                        <div class="location">
+                            <span class="lang-ar">واحات مدينة العين - أبوظبي</span>
+                            <span class="lang-en">Al Ain Oases - Abu Dhabi</span>
+                        </div>
+                        <div class="meta">
+                            <span><span class="lang-ar">الناشر: ويكيبيديا</span><span class="lang-en">Publisher: Wikipedia</span></span>
+                            <span><span class="lang-ar">التاريخ: 6 اغسطس 2017</span><span class="lang-en">Date: 6 Aug 2017</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        <a href="https://www.aljazeera.net/encyclopedia/2022/10/5/%D8%B4%D8%AC%D8%B1%D8%A9-%D8%A7%D9%84%D9%86%D8%AE%D9%8A%D9%84-%D8%B1%D9%85%D8%B2-%D8%A7%D9%84%D8%A8%D9%8A%D8%A6%D8%A9-%D8%A7%D9%84%D8%B5%D8%AD%D8%B1%D8%A7%D9%88%D9%8A%D8%A9" target="_blank" class="animal-link-card fade-in" style="transition-delay: 0.2s;">
+            <div class="animal-item">
+                <img src="https://www.aljazeera.net/wp-content/uploads/2022/10/%D8%A7%D9%84%D9%86%D8%AE%D9%8A%D9%84-1.png?resize=1800%2C1080" alt="شجر النخيل">
+                <div class="animal-info">
+                    <h3>
+                        <span class="lang-ar">شجر النخيل</span>
+                        <span class="lang-en">Palm Trees</span>
+                    </h3>
+                    <div class="info-details">
+                        <div class="location">
+                            <span class="lang-ar">منطقة ليوا، الظفرة - أبوظبي</span>
+                            <span class="lang-en">Liwa, Al Dhafra Region - Abu Dhabi</span>
+                        </div>
+                        <div class="meta">
+                            <span><span class="lang-ar">الناشر: الجزيرة نت</span><span class="lang-en">Publisher: Al Jazeera Net</span></span>
+                            <span><span class="lang-ar">التاريخ: 5 أكتوبر 2022</span><span class="lang-en">Date: October 5, 2022</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <section class="bottom-section fade-in">
+        <div class="bottom-logo">
+            <img src="https://i.imgur.com/EFpsR4T.png" alt="شعار براري أبوظبي" class="lang-ar">
+            <img src=" https://i.imgur.com/bUlCJpZ.png" alt="Barari Abu Dhabi Logo" class="lang-en">
+        </div>
+        
+        <div class="footer-content" style="max-width: 800px; margin: 0 auto 30px auto;">
+            <p style="color: var(--text-dim); font-size: 16px; line-height: 1.8;">
+                <span class="lang-ar">نلتزم في "براري أبوظبي" بتوثيق وحماية التراث الطبيعي والثقافي لإمارة أبوظبي. نسعى لنشر الوعي البيئي والمحافظة على استدامة حياتنا البرية للأجيال القادمة.</span>
+                <span class="lang-en">At "Barari Abu Dhabi", we are committed to documenting and protecting the natural and cultural heritage of Abu Dhabi. We strive to spread environmental awareness and preserve the sustainability of our wildlife for future generations.</span>
+            </p>
+        </div>
+
+        <div class="bottom-date" style="font-size: 12px; border-top: 1px solid rgba(154, 123, 92, 0.2); padding-top: 20px; max-width: 600px; margin: 0 auto;">
+            <span class="lang-ar">جميع الحقوق محفوظة &copy; 2026 <a href="https://www.instagram.com/raffak.ae?igsh=MXBuMml1bWl3MDl1NQ%3D%3D&utm_source=qr" target="_blank" style="color: var(--accent-color); text-decoration: none; font-weight: bold; transition: color 0.3s ease;">رفك</a></span>
+            <span class="lang-en">All Rights Reserved &copy; 2026 <a href="https://www.instagram.com/raffak.ae?igsh=MXBuMml1bWl3MDl1NQ%3D%3D&utm_source=qr" target="_blank" style="color: var(--accent-color); text-decoration: none; font-weight: bold; transition: color 0.3s ease;">Raffak</a></span>
+        </div>
+    </section>
+
+    <script src="navbar.js"></script>
+
+    <script>
+        const muteSvg = `
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <line x1="23" y1="1" x2="1" y2="23"></line>
+            </svg>
+        `;
+        
+        const unmuteSvg = `
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+            </svg>
+        `;
+
+        function toggleAudio() {
+            const video = document.getElementById("bgVideo");
+            const iconContainer = document.getElementById("audioIcon");
+            
+            if (video.muted) {
+                video.muted = false;
+                iconContainer.innerHTML = unmuteSvg; 
+            } else {
+                video.muted = true;
+                iconContainer.innerHTML = muteSvg; 
+            }
+        }
+
+        function openFullscreen() {
+            const video = document.getElementById("bgVideo");
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.webkitRequestFullscreen) {
+                video.webkitRequestFullscreen();
+            } else if (video.msRequestFullscreen) {
+                video.msRequestFullscreen();
+            }
+            video.muted = false; 
+            document.getElementById("audioIcon").innerHTML = unmuteSvg;
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.fade-in').forEach((element) => { observer.observe(element); });
+    </script>
+</body>
+</html>

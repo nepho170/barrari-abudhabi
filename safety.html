@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأمن والسلامة | Safety & Security</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg-deep: #2c1e16; --bg-section: #3a281d; --text-beige: #f0e5d8; --text-dim: #c8b49c; --accent-color: #9a7b5c; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-deep); color: var(--text-beige); font-family: 'Tajawal', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; transition: direction 0.3s ease; }
+        h1, h2, h3, .serif-text { font-family: 'Amiri', serif; font-weight: normal; }
+        :lang(en) h1, :lang(en) h2, :lang(en) h3, :lang(en) .serif-text { font-family: 'Playfair Display', serif; }
+        [lang="ar"] .lang-en { display: none !important; }
+        [lang="en"] .lang-ar { display: none !important; }
+
+        /* تنسيقات النافبار */
+        nav { background-color: rgba(44, 30, 22, 0.95); backdrop-filter: blur(10px); color: var(--text-beige); display: flex; justify-content: space-between; align-items: center; padding: 15px 50px; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(240, 229, 216, 0.05); }
+        .nav-left { display: flex; align-items: center; gap: 20px; }
+        [dir="rtl"] .logo-container { border-left: 1px solid var(--accent-color); padding-left: 20px; }
+        [dir="ltr"] .logo-container { border-right: 1px solid var(--accent-color); padding-right: 20px; }
+        .logo-container img { height: 60px; width: auto; object-fit: contain; display: block; }
+        .nav-date { font-size: 14px; color: var(--text-dim); }
+        .nav-right { display: flex; align-items: center; gap: 20px; }
+        .nav-right a { color: var(--text-beige); text-decoration: none; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; transition: color 0.3s ease; cursor: pointer;}
+        .nav-right a:hover { color: #ffffff; }
+        .lang-toggle-btn { background: transparent; border: 1px solid var(--accent-color); color: var(--text-beige); padding: 5px 15px; border-radius: 20px; cursor: pointer; font-family: 'Tajawal', sans-serif; transition: all 0.3s ease; }
+        .lang-toggle-btn:hover { background: var(--text-beige); color: var(--bg-deep); }
+
+        /* =========================================
+           تنسيقات الهيدر
+           ========================================= */
+        .gallery-header { 
+            position: relative; 
+            text-align: center; 
+            padding: 150px 20px 100px; 
+            overflow: hidden;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid rgba(240, 229, 216, 0.05);
+            background-color: #000;
+        }
+
+        .header-video {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%; min-height: 100%;
+            width: auto; height: auto;
+            z-index: 1;
+            object-fit: cover;
+            opacity: 0.7;
+        }
+
+        .header-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(44, 30, 22, 0.7), rgba(44, 30, 22, 0.95)); z-index: 2; }
+        .header-content { position: relative; z-index: 3; width: 100%; }
+        .gallery-header h1 { font-size: 60px; color: var(--text-beige); letter-spacing: 2px; text-shadow: 0 5px 15px rgba(0,0,0,0.8); margin: 0; }
+        .gallery-header p { color: var(--text-dim); font-size: 24px; margin-top: 15px; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
+
+        .video-controls { position: absolute; bottom: 30px; right: 40px; z-index: 10; display: flex; gap: 15px; }
+        [dir="ltr"] .video-controls { right: auto; left: 40px; }
+
+        .glass-btn { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(240, 229, 216, 0.3); color: var(--text-beige); width: 50px; height: 50px; border-radius: 50%; cursor: pointer; display: flex; justify-content: center; align-items: center; transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); box-shadow: 0 4px 15px rgba(0,0,0,0.1); padding: 0; }
+        .glass-btn svg { width: 22px; height: 22px; stroke: currentColor; stroke-width: 1.5; fill: none; transition: transform 0.3s ease; }
+        .glass-btn:hover { background: rgba(240, 229, 216, 0.15); border-color: rgba(240, 229, 216, 0.8); transform: translateY(-3px); color: #ffffff; }
+        .glass-btn:hover svg { transform: scale(1.1); }
+
+        /* =========================================
+           تخطيط قسم الأمن والسلامة
+           ========================================= */
+        .safety-section { padding: 80px 5%; max-width: 1400px; margin: 0 auto; }
+        
+        .safety-row { display: flex; align-items: center; gap: 50px; margin-bottom: 80px; }
+        .safety-row:nth-child(even) { flex-direction: row-reverse; }
+
+        .safety-image { 
+            flex: 1; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .safety-image img { 
+            width: 100%; 
+            height: auto; 
+            max-height: 800px; 
+            object-fit: contain; 
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+            transition: transform 0.6s ease; 
+        }
+        
+        .safety-image:hover img { transform: scale(1.02); }
+
+        .safety-content { flex: 1.2; display: flex; flex-direction: column; justify-content: center; gap: 25px; }
+
+        /* صناديق المعلومات الزجاجية */
+        .safety-box { 
+            background: rgba(255, 255, 255, 0.02); 
+            border: 1px solid rgba(240, 229, 216, 0.1); 
+            padding: 30px; 
+            border-radius: 10px; 
+            transition: transform 0.4s ease, background 0.4s ease, border-color 0.4s ease; 
+            backdrop-filter: blur(10px);
+        }
+        .safety-box:hover { 
+            transform: translateY(-5px); 
+            background: rgba(255, 255, 255, 0.05); 
+            border-color: var(--accent-color); 
+        }
+
+        .safety-box h3 { 
+            color: var(--accent-color); 
+            font-size: 26px; 
+            margin-bottom: 15px; 
+            border-bottom: 1px solid rgba(154, 123, 92, 0.2); 
+            padding-bottom: 10px; 
+        }
+
+        .safety-box p { color: var(--text-dim); font-size: 17px; line-height: 1.8; margin-bottom: 10px; }
+
+        .safety-box ul { list-style: none; padding-right: 0; margin-top: 10px; }
+        [dir="ltr"] .safety-box ul { padding-left: 0; }
+        
+        .safety-box li { 
+            color: var(--text-dim); 
+            font-size: 17px; 
+            margin-bottom: 12px; 
+            padding-right: 20px; 
+            position: relative; 
+            line-height: 1.6; 
+        }
+        .safety-box li::before { 
+            content: '♦'; 
+            color: var(--text-beige); 
+            position: absolute; 
+            right: 0; 
+            font-size: 14px; 
+            top: 2px; 
+            opacity: 0.7;
+        }
+        [dir="ltr"] .safety-box li { padding-right: 0; padding-left: 20px; }
+        [dir="ltr"] .safety-box li::before { right: auto; left: 0; }
+
+        .bottom-section { background-color: var(--bg-deep); padding: 100px 20px; text-align: center; border-top: 1px solid rgba(240, 229, 216, 0.05); }
+        .bottom-logo img { height: 120px; width: auto; margin: 0 auto 30px auto; display: block; object-fit: contain; }
+        .bottom-date { font-size: 24px; line-height: 1.8; color: var(--text-dim); }
+
+        @media (max-width: 992px) { 
+            .safety-row, .safety-row:nth-child(even) { flex-direction: column; gap: 30px; margin-bottom: 60px; } 
+            .safety-content { flex: 1; width: 100%; }
+        }
+        @media (max-width: 768px) { nav { flex-direction: column; padding: 20px; gap: 15px; } .nav-left, .nav-right { width: 100%; justify-content: center; flex-wrap: wrap; } [dir="rtl"] .logo-container, [dir="ltr"] .logo-container { border: none; padding: 0; } .gallery-header h1 { font-size: 36px; } }
+        
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 1s ease, transform 1s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+
+<div id="navbar-container" style="position: sticky; top: 0; z-index: 100;"></div>
+
+    <div id="headerSection" class="gallery-header fade-in">
+        
+        <video id="bgVideo" class="header-video" autoplay loop muted playsinline>
+            <source src="https://i.imgur.com/OXYTIy1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        
+        <div class="header-overlay"></div>
+        
+        <div class="header-content">
+            <h1>
+                <span class="lang-ar">الأمن والسلامة</span>
+                <span class="lang-en">Safety & Security</span>
+            </h1>
+            <p>
+                <span class="lang-ar">إرشادات السلامة الأساسية في البر والتخييم</span>
+                <span class="lang-en">Basic desert and camping safety guidelines</span>
+            </p>
+        </div>
+
+        <div class="video-controls">
+            <button class="glass-btn" onclick="toggleAudio()" title="Sound">
+                <span id="audioIcon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                        <line x1="23" y1="1" x2="1" y2="23"></line>
+                    </svg>
+                </span>
+            </button>
+            <button class="glass-btn" onclick="openFullscreen()" title="Fullscreen">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <section class="safety-section">
+        
+        <div class="safety-row fade-in">
+            <div class="safety-image">
+                <img src="https://i.imgur.com/JYWA4mk.png" alt="إرشادات التخييم">
+            </div>
+            <div class="safety-content">
+                
+                <div class="safety-box">
+                    <h3>
+                        <span class="lang-ar">موقع التخييم</span>
+                        <span class="lang-en">Camping Location</span>
+                    </h3>
+                    <p>
+                        <span class="lang-ar">اختر مكاناً مرتفعاً، مكشوفاً، ومستوياً، وبعيداً عن مجاري السيول والأودية.</span>
+                        <span class="lang-en">Choose a high, open, and flat area, away from flash flood paths and valleys.</span>
+                    </p>
+                </div>
+
+                <div class="safety-box">
+                    <h3>
+                        <span class="lang-ar">نصب الخيام</span>
+                        <span class="lang-en">Pitching Tents</span>
+                    </h3>
+                    <ul>
+                        <li>
+                            <span class="lang-ar">استخدم أوتاداً حديدية قوية لتثبيت الخيام، خاصة في الأرض الصلبة.</span>
+                            <span class="lang-en">Use strong iron pegs to secure tents, especially in hard ground.</span>
+                        </li>
+                        <li>
+                            <span class="lang-ar">نظف الأرض من الأحجار والزجاج قبل نصب الخيمة.</span>
+                            <span class="lang-en">Clear the ground of stones and glass before pitching the tent.</span>
+                        </li>
+                        <li>
+                            <span class="lang-ar">اترك مسافة لا تقل عن مترين بين الخيام.</span>
+                            <span class="lang-en">Leave a distance of at least two meters between tents.</span>
+                        </li>
+                        <li>
+                            <span class="lang-ar">اجعل ظهر الخيمة مواجهاً لاتجاه الرياح.</span>
+                            <span class="lang-en">Face the back of the tent towards the direction of the wind.</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="safety-row fade-in">
+            <div class="safety-image">
+                <img src="https://i.imgur.com/6W2A52J.png" alt="السلامة والبيئة">
+            </div>
+            <div class="safety-content">
+                
+                <div class="safety-box">
+                    <h3>
+                        <span class="lang-ar">الحماية من الحرائق</span>
+                        <span class="lang-en">Fire Protection</span>
+                    </h3>
+                    <ul>
+                        <li>
+                            <span class="lang-ar">وفر طفايات حريق يدوية مناسبة داخل المخيم.</span>
+                            <span class="lang-en">Provide suitable manual fire extinguishers inside the camp.</span>
+                        </li>
+                        <li>
+                            <span class="lang-ar">أشعل النار على بعد مناسب من الخيام، وراقبها دائماً مع مراعاة اتجاه الرياح.</span>
+                            <span class="lang-en">Light fires at a safe distance from tents, monitor them constantly, and consider wind direction.</span>
+                        </li>
+                        <li>
+                            <span class="lang-ar">لا تستخدم اللهب المكشوف (شموع، ولاعات) داخل الخيمة.</span>
+                            <span class="lang-en">Do not use open flames (candles, lighters) inside the tent.</span>
+                        </li>
+                        <li>
+                            <span class="lang-ar">تأكد من إطفاء النار تماماً قبل النوم أو مغادرة الموقع.</span>
+                            <span class="lang-en">Ensure the fire is completely extinguished before sleeping or leaving the site.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="safety-box">
+                    <h3>
+                        <span class="lang-ar">الأمان الكهربائي</span>
+                        <span class="lang-en">Electrical Safety</span>
+                    </h3>
+                    <ul>
+                        <li>
+                            <span class="lang-ar">اجعل المولد الكهربائي بعيداً عن الخيام بمسافة لا تقل عن 10 أمتار.</span>
+                            <span class="lang-en">Keep the electrical generator at least 10 meters away from the tents.</span>
+                        </li>
+                        <li>
+                            <span class="lang-ar">تجنب استخدام التوصيلات العارية، وارفع الأسلاك عن الأرض.</span>
+                            <span class="lang-en">Avoid using bare connections, and keep wires elevated off the ground.</span>
+                        </li>
+                        <li>
+                            <span class="lang-ar">لا تضع المصابيح قريبة من سقف أو قماش الخيمة.</span>
+                            <span class="lang-en">Do not place lamps close to the tent's roof or fabric.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="safety-box">
+                    <h3>
+                        <span class="lang-ar">السلامة الشخصية والبيئية</span>
+                        <span class="lang-en">Personal & Environmental Safety</span>
+                    </h3>
+                    <ul>
+                        <li>
+                            <span class="lang-ar">جهز صندوق إسعافات أولية.</span>
+                            <span class="lang-en">Prepare a first aid kit.</span>
+                        </li>
+                        <li>
+                            <span class="lang-ar">احذر من الأفاعي والعقارب، ولا تخلع حذاءك خارج الخيمة، وافحصه قبل ارتدائه.</span>
+                            <span class="lang-en">Beware of snakes and scorpions, do not leave your shoes outside the tent, and check them before wearing.</span>
+                        </li>
+                        <li>
+                            <span class="lang-ar">افصل أماكن الطهي (المطبخ) عن خيام النوم، وضع أسطوانة الغاز خارج الخيمة.</span>
+                            <span class="lang-en">Separate cooking areas (kitchen) from sleeping tents, and place the gas cylinder outside.</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="safety-row fade-in">
+         
+            <div class="safety-content">
+                
+                <div class="safety-box">
+                    <h3>
+                        <span class="lang-ar">التصاريح والإجراءات الأمنية</span>
+                        <span class="lang-en">Permits & Security Procedures</span>
+                    </h3>
+                    <ul>
+                        <li>
+                            <span class="lang-ar">تأكد من الحصول على تصريح التخييم من الجهات المختصة (مثل البلدية أو هيئة البيئة) قبل إقامة المخيم.</span>
+                            <span class="lang-en">Ensure you obtain a camping permit from the competent authorities (e.g., Municipality or Environment Agency) before setting up camp.</span>
+                        </li>
+                        <li>
+                            <span class="lang-ar">في بعض المناطق (مثل المحميات الطبيعية أو الجزر)، يلزم تصريح دخول خاص مسبق.</span>
+                            <span class="lang-en">In some areas (like nature reserves or islands), a special prior entry permit is required.</span>
+                        </li>
+                        <li>
+                            <span class="lang-ar">الالتزام بتعليمات الجهات الرسمية وعدم التخييم في الأماكن الممنوعة أو الخطرة.</span>
+                            <span class="lang-en">Adhere to official instructions and avoid camping in prohibited or dangerous areas.</span>
+                        </li>
+                        <li>
+                            <span class="lang-ar">تسجيل موقع المخيم ومشاركته مع العائلة أو الأصدقاء لسهولة الوصول في حالات الطوارئ.</span>
+                            <span class="lang-en">Register your camp location and share it with family or friends for easy access in emergencies.</span>
+                        </li>
+                        <li>
+                            <span class="lang-ar">الاحتفاظ بأرقام الطوارئ (الشرطة، الإسعاف، الدفاع المدني).</span>
+                            <span class="lang-en">Keep emergency numbers handy (Police, Ambulance, Civil Defense).</span>
+                        </li>
+                        <li>
+                            <span class="lang-ar">الالتزام بالقوانين المحلية مثل منع إشعال النار في بعض الفترات أو الأماكن.</span>
+                            <span class="lang-en">Comply with local laws, such as fire bans during certain periods or in specific locations.</span>
+                        </li>
+                        <li>
+                            <span class="lang-ar">في الرحلات الجماعية، يفضل وجود مشرف مسؤول عن السلامة والتواصل مع الجهات المختصة.</span>
+                            <span class="lang-en">For group trips, it is advisable to have a supervisor responsible for safety and communication with authorities.</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <section class="bottom-section fade-in">
+        <div class="bottom-logo">
+            <img src="https://i.imgur.com/EFpsR4T.png" alt="شعار براري أبوظبي" class="lang-ar">
+            <img src=" https://i.imgur.com/bUlCJpZ.png" alt="Barari Abu Dhabi Logo" class="lang-en">
+        </div>
+        
+        <div class="footer-content" style="max-width: 800px; margin: 0 auto 30px auto;">
+            <p style="color: var(--text-dim); font-size: 16px; line-height: 1.8;">
+                <span class="lang-ar">نلتزم في "براري أبوظبي" بتوثيق وحماية التراث الطبيعي والثقافي لإمارة أبوظبي. نسعى لنشر الوعي البيئي والمحافظة على استدامة حياتنا البرية للأجيال القادمة.</span>
+                <span class="lang-en">At "Barari Abu Dhabi", we are committed to documenting and protecting the natural and cultural heritage of Abu Dhabi. We strive to spread environmental awareness and preserve the sustainability of our wildlife for future generations.</span>
+            </p>
+        </div>
+
+        <div class="bottom-date" style="font-size: 12px; border-top: 1px solid rgba(154, 123, 92, 0.2); padding-top: 20px; max-width: 600px; margin: 0 auto;">
+            <span class="lang-ar">جميع الحقوق محفوظة &copy; 2026 <a href="https://www.instagram.com/raffak.ae?igsh=MXBuMml1bWl3MDl1NQ%3D%3D&utm_source=qr" target="_blank" style="color: var(--accent-color); text-decoration: none; font-weight: bold; transition: color 0.3s ease;">رفك</a></span>
+            <span class="lang-en">All Rights Reserved &copy; 2026 <a href="https://www.instagram.com/raffak.ae?igsh=MXBuMml1bWl3MDl1NQ%3D%3D&utm_source=qr" target="_blank" style="color: var(--accent-color); text-decoration: none; font-weight: bold; transition: color 0.3s ease;">Raffak</a></span>
+        </div>
+    </section>
+
+    <script src="navbar.js"></script>
+
+    <script>
+        const muteSvg = `
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <line x1="23" y1="1" x2="1" y2="23"></line>
+            </svg>
+        `;
+        
+        const unmuteSvg = `
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+            </svg>
+        `;
+
+        function toggleAudio() {
+            const video = document.getElementById("bgVideo");
+            const iconContainer = document.getElementById("audioIcon");
+            
+            if (video.muted) {
+                video.muted = false;
+                iconContainer.innerHTML = unmuteSvg; 
+            } else {
+                video.muted = true;
+                iconContainer.innerHTML = muteSvg; 
+            }
+        }
+
+        function openFullscreen() {
+            const video = document.getElementById("bgVideo");
+            
+            // كود مخصص ليدعم التكبير في جميع المتصفحات والجوالات (الآيفون خاصة)
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.webkitRequestFullscreen) {
+                video.webkitRequestFullscreen(); // Safari
+            } else if (video.msRequestFullscreen) {
+                video.msRequestFullscreen(); // IE11
+            } else if (video.webkitEnterFullscreen) {
+                video.webkitEnterFullscreen(); // iOS Safari Mobile
+            }
+            
+            // تشغيل الصوت تلقائياً عند التكبير
+            if (video && video.muted) {
+                video.muted = false;
+                document.getElementById("audioIcon").innerHTML = unmuteSvg;
+            }
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.fade-in').forEach((element) => { observer.observe(element); });
+    </script>
+</body>
+</html>

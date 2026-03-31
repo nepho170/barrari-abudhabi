@@ -8,10 +8,7 @@ const navbarCode = `
                 <img src="https://i.imgur.com/bUlCJpZ.png" alt="Barari Abu Dhabi Logo" class="lang-en">
             </a>
         </div>
-        <span class="nav-date">
-            <span class="lang-ar">٢٠٢٥ - ٢٠٢٦</span>
-            <span class="lang-en">2025 - 2026</span>
-        </span>
+       
     </div>
     <div class="nav-right">
         <a href="index.html">
@@ -52,30 +49,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // تفعيل اللغة المحفوظة تلقائياً
     const savedLang = localStorage.getItem('lang');
-    if(savedLang === 'en') {
+    if (savedLang === 'en') {
         document.documentElement.setAttribute('lang', 'en');
         document.documentElement.setAttribute('dir', 'ltr');
         // ننتظر قليلاً حتى يتم رسم الزر ثم نغير نصه
         setTimeout(() => {
             const btn = document.querySelector('.lang-toggle-btn');
-            if(btn) btn.textContent = 'AR';
+            if (btn) btn.textContent = 'AR';
         }, 50);
     }
 });
 
 // دالة تغيير اللغة وحفظها
 function toggleLanguage() {
-    const htmlTag = document.documentElement; 
+    const htmlTag = document.documentElement;
     const btn = document.querySelector('.lang-toggle-btn');
     if (htmlTag.getAttribute('lang') === 'ar') {
-        htmlTag.setAttribute('lang', 'en'); 
-        htmlTag.setAttribute('dir', 'ltr'); 
-        if(btn) btn.textContent = 'AR';
+        htmlTag.setAttribute('lang', 'en');
+        htmlTag.setAttribute('dir', 'ltr');
+        if (btn) btn.textContent = 'AR';
         localStorage.setItem('lang', 'en');
     } else {
-        htmlTag.setAttribute('lang', 'ar'); 
-        htmlTag.setAttribute('dir', 'rtl'); 
-        if(btn) btn.textContent = 'EN';
+        htmlTag.setAttribute('lang', 'ar');
+        htmlTag.setAttribute('dir', 'rtl');
+        if (btn) btn.textContent = 'EN';
         localStorage.setItem('lang', 'ar');
     }
 }

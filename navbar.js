@@ -24,8 +24,8 @@ const navbarCode = `
             <span class="lang-en">Traditions</span>
         </a>
         <a href="books.html">
-            <span class="lang-ar">كتب</span>
-            <span class="lang-en">Books</span>
+            <span class="lang-ar">المكتبة</span>
+            <span class="lang-en">Library</span>
         </a>
         <a href="safety.html">
             <span class="lang-ar">الأمن والسلامة</span>

@@ -1,517 +1,85 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>متجر الحياة البرية | Wildlife Store</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@300;400&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@300;400&display=swap" rel="stylesheet">
     <style>
         /* الألوان والخطوط الأساسية */
-        :root {
-            --bg-deep: #2c1e16;
-            --bg-section: #3a281d;
-            --text-beige: #f0e5d8;
-            --text-dim: #c8b49c;
-            --accent-color: #9a7b5c;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background-color: var(--bg-deep);
-            color: var(--text-beige);
-            font-family: 'Tajawal', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
-            transition: direction 0.3s ease;
-        }
-
-        h1,
-        h2,
-        h3,
-        .serif-text {
-            font-family: 'Amiri', serif;
-            font-weight: normal;
-        }
-
-        :lang(en) h1,
-        :lang(en) h2,
-        :lang(en) h3,
-        :lang(en) .serif-text,
-        :lang(en) .hero-text p,
-        :lang(en) .store-content p {
-            font-family: 'Playfair Display', serif;
-        }
-
-        [lang="ar"] .lang-en {
-            display: none !important;
-        }
-
-        [lang="en"] .lang-ar {
-            display: none !important;
-        }
+        :root { --bg-deep: #2c1e16; --bg-section: #3a281d; --text-beige: #f0e5d8; --text-dim: #c8b49c; --accent-color: #9a7b5c; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-deep); color: var(--text-beige); font-family: 'Tajawal', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; transition: direction 0.3s ease; }
+        h1, h2, h3, .serif-text { font-family: 'Amiri', serif; font-weight: normal; }
+        :lang(en) h1, :lang(en) h2, :lang(en) h3, :lang(en) .serif-text, :lang(en) .hero-text p, :lang(en) .store-content p { font-family: 'Playfair Display', serif; }
+        [lang="ar"] .lang-en { display: none !important; }
+        [lang="en"] .lang-ar { display: none !important; }
 
         /* تنسيقات النافبار (المستدعى من js) */
-        nav {
-            background-color: rgba(44, 30, 22, 0.95);
-            backdrop-filter: blur(10px);
-            color: var(--text-beige);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 50px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid rgba(240, 229, 216, 0.05);
-        }
-
-        .nav-left {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        [dir="rtl"] .logo-container {
-            border-left: 1px solid var(--accent-color);
-            padding-left: 20px;
-        }
-
-        [dir="ltr"] .logo-container {
-            border-right: 1px solid var(--accent-color);
-            padding-right: 20px;
-        }
-
-        .logo-container img {
-            height: 60px;
-            width: auto;
-            object-fit: contain;
-            display: block;
-        }
-
-        .nav-date {
-            font-size: 14px;
-            color: var(--text-dim);
-        }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .nav-right a {
-            color: var(--text-beige);
-            text-decoration: none;
-            font-size: 13px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: color 0.3s ease;
-            cursor: pointer;
-        }
-
-        .nav-right a:hover {
-            color: #ffffff;
-        }
-
-        .lang-toggle-btn {
-            background: transparent;
-            border: 1px solid var(--accent-color);
-            color: var(--text-beige);
-            padding: 5px 15px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-family: 'Tajawal', sans-serif;
-            transition: all 0.3s ease;
-        }
-
-        .lang-toggle-btn:hover {
-            background: var(--text-beige);
-            color: var(--bg-deep);
-        }
+        nav { background-color: rgba(44, 30, 22, 0.95); backdrop-filter: blur(10px); color: var(--text-beige); display: flex; justify-content: space-between; align-items: center; padding: 15px 50px; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(240, 229, 216, 0.05); }
+        .nav-left { display: flex; align-items: center; gap: 20px; }
+        [dir="rtl"] .logo-container { border-left: 1px solid var(--accent-color); padding-left: 20px; }
+        [dir="ltr"] .logo-container { border-right: 1px solid var(--accent-color); padding-right: 20px; }
+        .logo-container img { height: 60px; width: auto; object-fit: contain; display: block; }
+        .nav-date { font-size: 14px; color: var(--text-dim); }
+        .nav-right { display: flex; align-items: center; gap: 20px; }
+        .nav-right a { color: var(--text-beige); text-decoration: none; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; transition: color 0.3s ease; cursor: pointer; }
+        .nav-right a:hover { color: #ffffff; }
+        .lang-toggle-btn { background: transparent; border: 1px solid var(--accent-color); color: var(--text-beige); padding: 5px 15px; border-radius: 20px; cursor: pointer; font-family: 'Tajawal', sans-serif; transition: all 0.3s ease; }
+        .lang-toggle-btn:hover { background: var(--text-beige); color: var(--bg-deep); }
 
         /* باقي تصميم الصفحة الرئيسية */
-        .mega-title-section {
-            padding: 100px 20px 60px;
-            text-align: center;
-        }
+        .mega-title-section { padding: 100px 20px 60px; text-align: center; }
+        .mega-title-section h1 { font-size: 8vw; color: var(--text-beige); line-height: 1.1; text-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .hero-image-section { position: relative; height: 70vh; background: url('https://images.unsplash.com/photo-1542317148-8b4bdccb33ea?q=80&w=2000&auto=format&fit=crop') center/cover fixed; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; padding-bottom: 80px; }
+        .hero-image-section::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(44, 30, 22, 0.3), var(--bg-deep)); z-index: 1; }
+        .hero-text { position: relative; z-index: 2; text-align: center; max-width: 800px; padding: 0 20px; }
+        .hero-text p { font-family: 'Amiri', serif; font-size: 32px; line-height: 1.6; margin-bottom: 20px; }
+        .hero-text span { font-size: 16px; letter-spacing: 2px; color: var(--text-dim); }
 
-        .mega-title-section h1 {
-            font-size: 8vw;
-            color: var(--text-beige);
-            line-height: 1.1;
-            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
+        .grid-section { padding: 80px 5%; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; background-color: var(--bg-deep); }
+        .grid-card { position: relative; height: 550px; border-radius: 5px; overflow: hidden; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+        .grid-card img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; transition: transform 0.8s ease, filter 0.8s ease; filter: grayscale(40%) brightness(0.6) sepia(20%); }
+        .grid-card::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(44, 30, 22, 0.5); z-index: 2; transition: background 0.5s ease; }
+        .grid-card:hover img { transform: scale(1.05); filter: grayscale(0%) brightness(0.9) sepia(10%); }
+        .grid-card:hover::after { background: rgba(44, 30, 22, 0.2); }
+        .grid-title { position: relative; z-index: 3; color: var(--text-beige); font-size: 32px; letter-spacing: 2px; text-decoration: underline; text-underline-offset: 12px; text-decoration-thickness: 1px; text-shadow: 0 5px 15px rgba(0,0,0,0.8); text-align: center; }
 
-        .hero-image-section {
-            position: relative;
-            height: 70vh;
-            background: url('https://images.unsplash.com/photo-1542317148-8b4bdccb33ea?q=80&w=2000&auto=format&fit=crop') center/cover fixed;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            align-items: center;
-            padding-bottom: 80px;
-        }
+        .store-section { position: relative; padding: 120px 20px; text-align: center; background-color: var(--bg-section); border-top: 1px solid rgba(240, 229, 216, 0.05); border-bottom: 1px solid rgba(240, 229, 216, 0.05); }
+        .store-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
+        .store-content h2 { font-size: 40px; margin-bottom: 30px; color: var(--text-beige); }
+        .store-content p { font-size: 22px; line-height: 1.8; margin-bottom: 50px; color: var(--text-dim); }
+        .btn-outline { display: inline-block; padding: 15px 50px; background-color: transparent; color: var(--text-beige); text-decoration: none; border: 1px solid var(--accent-color); letter-spacing: 2px; font-size: 14px; transition: all 0.3s ease; }
+        .btn-outline:hover { background-color: var(--text-beige); color: var(--bg-deep); }
 
-        .hero-image-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(44, 30, 22, 0.3), var(--bg-deep));
-            z-index: 1;
-        }
-
-        .hero-text {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            max-width: 800px;
-            padding: 0 20px;
-        }
-
-        .hero-text p {
-            font-family: 'Amiri', serif;
-            font-size: 32px;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .hero-text span {
-            font-size: 16px;
-            letter-spacing: 2px;
-            color: var(--text-dim);
-        }
-
-        .grid-section {
-            padding: 80px 5%;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            background-color: var(--bg-deep);
-        }
-
-        .grid-card {
-            position: relative;
-            height: 550px;
-            border-radius: 5px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
-
-        .grid-card img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 1;
-            transition: transform 0.8s ease, filter 0.8s ease;
-            filter: grayscale(40%) brightness(0.6) sepia(20%);
-        }
-
-        .grid-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(44, 30, 22, 0.5);
-            z-index: 2;
-            transition: background 0.5s ease;
-        }
-
-        .grid-card:hover img {
-            transform: scale(1.05);
-            filter: grayscale(0%) brightness(0.9) sepia(10%);
-        }
-
-        .grid-card:hover::after {
-            background: rgba(44, 30, 22, 0.2);
-        }
-
-        .grid-title {
-            position: relative;
-            z-index: 3;
-            color: var(--text-beige);
-            font-size: 32px;
-            letter-spacing: 2px;
-            text-decoration: underline;
-            text-underline-offset: 12px;
-            text-decoration-thickness: 1px;
-            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
-            text-align: center;
-        }
-
-        .store-section {
-            position: relative;
-            padding: 120px 20px;
-            text-align: center;
-            background-color: var(--bg-section);
-            border-top: 1px solid rgba(240, 229, 216, 0.05);
-            border-bottom: 1px solid rgba(240, 229, 216, 0.05);
-        }
-
-        .store-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .store-content h2 {
-            font-size: 40px;
-            margin-bottom: 30px;
-            color: var(--text-beige);
-        }
-
-        .store-content p {
-            font-size: 22px;
-            line-height: 1.8;
-            margin-bottom: 50px;
-            color: var(--text-dim);
-        }
-
-        .btn-outline {
-            display: inline-block;
-            padding: 15px 50px;
-            background-color: transparent;
-            color: var(--text-beige);
-            text-decoration: none;
-            border: 1px solid var(--accent-color);
-            letter-spacing: 2px;
-            font-size: 14px;
-            transition: all 0.3s ease;
-        }
-
-        .btn-outline:hover {
-            background-color: var(--text-beige);
-            color: var(--bg-deep);
-        }
-
-        .bottom-section {
-            background-color: var(--bg-deep);
-            padding: 100px 20px;
-            text-align: center;
-        }
-
-        .bottom-logo img {
-            height: 120px;
-            width: auto;
-            margin: 0 auto 30px auto;
-            display: block;
-            object-fit: contain;
-        }
-
-        .bottom-date {
-            font-size: 24px;
-            line-height: 1.8;
-            color: var(--text-dim);
-        }
+        .bottom-section { background-color: var(--bg-deep); padding: 100px 20px; text-align: center; }
+        .bottom-logo img { height: 120px; width: auto; margin: 0 auto 30px auto; display: block; object-fit: contain; }
+        .bottom-date { font-size: 24px; line-height: 1.8; color: var(--text-dim); }
 
         /* تنسيقات النافذة المنبثقة الفاخرة */
-        .luxury-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background-color: var(--bg-deep);
-            z-index: 9998;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-        }
+        .luxury-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background-color: var(--bg-deep); z-index: 9998; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1); }
+        .luxury-overlay.active { opacity: 1; pointer-events: auto; }
+        .overlay-bg-image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.8s ease, transform 3s ease; z-index: 1; transform: scale(1.05); filter: grayscale(20%) brightness(0.4) sepia(20%); }
+        .overlay-dark-layer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(44, 30, 22, 0.9), rgba(44, 30, 22, 0.6)); z-index: 2; }
+        .close-btn { position: absolute; top: 40px; z-index: 20; font-size: 40px; color: var(--text-beige); cursor: pointer; font-family: sans-serif; font-weight: 300; transition: transform 0.4s ease, color 0.3s ease; line-height: 1; }
+        [dir="rtl"] .close-btn { left: 50px; } [dir="ltr"] .close-btn { right: 50px; }
+        .close-btn:hover { transform: rotate(90deg); color: #ffffff; }
+        .overlay-links { position: relative; z-index: 10; display: flex; gap: 8vw; align-items: center; opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; transition-delay: 0.2s; }
+        .luxury-overlay.active .overlay-links { opacity: 1; transform: translateY(0); }
+        .overlay-links a { color: var(--text-beige); text-decoration: none; font-size: 6vw; opacity: 0.4; transition: opacity 0.4s ease, transform 0.4s ease; cursor: pointer; position: relative; }
+        [lang="ar"] .overlay-links a { font-family: 'Amiri', serif; } [lang="en"] .overlay-links a { font-family: 'Playfair Display', serif; }
+        .overlay-links:hover a { opacity: 0.2; }
+        .overlay-links a:hover { opacity: 1; transform: translateY(-10px); }
 
-        .luxury-overlay.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .overlay-bg-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0;
-            transition: opacity 0.8s ease, transform 3s ease;
-            z-index: 1;
-            transform: scale(1.05);
-            filter: grayscale(20%) brightness(0.4) sepia(20%);
-        }
-
-        .overlay-dark-layer {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, rgba(44, 30, 22, 0.9), rgba(44, 30, 22, 0.6));
-            z-index: 2;
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 40px;
-            z-index: 20;
-            font-size: 40px;
-            color: var(--text-beige);
-            cursor: pointer;
-            font-family: sans-serif;
-            font-weight: 300;
-            transition: transform 0.4s ease, color 0.3s ease;
-            line-height: 1;
-        }
-
-        [dir="rtl"] .close-btn {
-            left: 50px;
-        }
-
-        [dir="ltr"] .close-btn {
-            right: 50px;
-        }
-
-        .close-btn:hover {
-            transform: rotate(90deg);
-            color: #ffffff;
-        }
-
-        .overlay-links {
-            position: relative;
-            z-index: 10;
-            display: flex;
-            gap: 8vw;
-            align-items: center;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-            transition-delay: 0.2s;
-        }
-
-        .luxury-overlay.active .overlay-links {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .overlay-links a {
-            color: var(--text-beige);
-            text-decoration: none;
-            font-size: 6vw;
-            opacity: 0.4;
-            transition: opacity 0.4s ease, transform 0.4s ease;
-            cursor: pointer;
-            position: relative;
-        }
-
-        [lang="ar"] .overlay-links a {
-            font-family: 'Amiri', serif;
-        }
-
-        [lang="en"] .overlay-links a {
-            font-family: 'Playfair Display', serif;
-        }
-
-        .overlay-links:hover a {
-            opacity: 0.2;
-        }
-
-        .overlay-links a:hover {
-            opacity: 1;
-            transform: translateY(-10px);
-        }
-
-        @media (max-width: 1100px) {
-            .grid-section {
-                grid-template-columns: repeat(2, 1fr);
-                padding: 40px 5%;
-                gap: 20px;
-            }
-
-            .grid-card {
-                height: 450px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                padding: 20px;
-                gap: 15px;
-            }
-
-            .nav-left,
-            .nav-right {
-                width: 100%;
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-
-            [dir="rtl"] .logo-container,
-            [dir="ltr"] .logo-container {
-                border: none;
-                padding: 0;
-            }
-
-            .grid-section {
-                grid-template-columns: 1fr;
-            }
-
-            .overlay-links {
-                flex-direction: column;
-                gap: 30px;
-            }
-
-            .overlay-links a {
-                font-size: 15vw;
-            }
-
-            [dir="rtl"] .close-btn {
-                left: 20px;
-                top: 20px;
-            }
-
-            [dir="ltr"] .close-btn {
-                right: 20px;
-                top: 20px;
-            }
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 1s ease, transform 1s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        @media (max-width: 1100px) { .grid-section { grid-template-columns: repeat(2, 1fr); padding: 40px 5%; gap: 20px; } .grid-card { height: 450px; } }
+        @media (max-width: 768px) { nav { flex-direction: column; padding: 20px; gap: 15px; } .nav-left, .nav-right { width: 100%; justify-content: center; flex-wrap: wrap; } [dir="rtl"] .logo-container, [dir="ltr"] .logo-container { border: none; padding: 0; } .grid-section { grid-template-columns: 1fr; } .overlay-links { flex-direction: column; gap: 30px; } .overlay-links a { font-size: 15vw; } [dir="rtl"] .close-btn { left: 20px; top: 20px; } [dir="ltr"] .close-btn { right: 20px; top: 20px; } }
+        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 1s ease, transform 1s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
     </style>
 </head>
-
 <body>
 
-    <div id="navbar-container" style="position: sticky; top: 0; z-index: 100;"></div>
+<div id="navbar-container" style="position: sticky; top: 0; z-index: 100;"></div>
     <section class="mega-title-section fade-in">
         <h1>
             <span class="lang-ar">براري أبوظبي</span>
@@ -522,10 +90,8 @@
     <section class="hero-image-section fade-in">
         <div class="hero-text">
             <p>
-                <span class="lang-ar">تخفي رمال أبوظبي خلف سكونها الظاهري عالماً ينبض بالحياة، لتروي لنا قصة بقاء مذهلة
-                    تتوارثها الأجيال في قلب الصحراء.</span>
-                <span class="lang-en">Beneath the apparent stillness of Abu Dhabi's sands lies a vibrant world, telling
-                    an incredible story of survival passed down through generations.</span>
+                <span class="lang-ar">تخفي رمال أبوظبي خلف سكونها الظاهري عالماً ينبض بالحياة، لتروي لنا قصة بقاء مذهلة تتوارثها الأجيال في قلب الصحراء.</span>
+                <span class="lang-en">Beneath the apparent stillness of Abu Dhabi's sands lies a vibrant world, telling an incredible story of survival passed down through generations.</span>
             </p>
             <span>
                 <span class="lang-ar">متجر يجسد التنوع البيولوجي والتراث</span>
@@ -536,36 +102,33 @@
 
     <section class="grid-section">
         <div class="grid-card fade-in" onclick="openOverlay()">
-            <img src="https://mybayutcdn.bayut.com/mybayut/wp-content/uploads/sir-bani-yas-ar-B-10-01-1024x640.jpg"
-                alt="Wildlife">
+            <img src="https://mybayutcdn.bayut.com/mybayut/wp-content/uploads/sir-bani-yas-ar-B-10-01-1024x640.jpg" alt="Wildlife">
             <h3 class="grid-title">
                 <span class="lang-ar">الحياة البرية</span>
                 <span class="lang-en">Wildlife</span>
             </h3>
         </div>
-        <a href="traditions.html" style="text-decoration: none; color: inherit; display: block;">
+   <a href="traditions.html" style="text-decoration: none; color: inherit; display: block;">
             <div class="grid-card fade-in" style="transition-delay: 0.2s;">
-                <img src="https://mybayutcdn.bayut.com/mybayut/wp-content/uploads/Emirati-Traditions-3-AR01022024.jpg"
-                    alt="Traditions">
+                <img src="https://mybayutcdn.bayut.com/mybayut/wp-content/uploads/Emirati-Traditions-3-AR01022024.jpg" alt="Traditions">
                 <h3 class="grid-title">
                     <span class="lang-ar">العادات والتقاليد</span>
                     <span class="lang-en">Traditions</span>
                 </h3>
             </div>
         </a>
-        <a href="books.html" style="text-decoration: none; color: inherit; display: block;">
+       <a href="books.html" style="text-decoration: none; color: inherit; display: block;">
             <div class="grid-card fade-in" style="transition-delay: 0.4s;">
                 <img src="https://www.propertyfinder.ae/blog/wp-content/uploads/2025/06/2-34.webp" alt="Books">
                 <h3 class="grid-title">
-                    <span class="lang-ar">كتب</span>
-                    <span class="lang-en">Books</span>
+                    <span class="lang-ar">المكتبة</span>
+                    <span class="lang-en">Library</span>
                 </h3>
             </div>
         </a>
-        <a href="safety.html" style="text-decoration: none; color: inherit; display: block;">
+      <a href="safety.html" style="text-decoration: none; color: inherit; display: block;">
             <div class="grid-card fade-in" style="transition-delay: 0.6s;">
-                <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1000&auto=format&fit=crop"
-                    alt="Safety & Security">
+                <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=1000&auto=format&fit=crop" alt="Safety & Security">
                 <h3 class="grid-title">
                     <span class="lang-ar">الأمن والسلامة</span>
                     <span class="lang-en">Safety</span>
@@ -581,11 +144,8 @@
                 <span class="lang-en">The Store</span>
             </h2>
             <p>
-                <span class="lang-ar">تم تصميم هذا المتجر ليسلط الضوء على جمال وتنوع الحياة البرية في إمارة أبوظبي،
-                    ليقدم لك مجموعة من المقتنيات التي تعكس الكائنات والعادات بكل هدوء وفخامة.</span>
-                <span class="lang-en">This store is designed to highlight the beauty and diversity of Abu Dhabi's
-                    wildlife, offering a curated collection that reflects its creatures and customs with serene
-                    elegance.</span>
+                <span class="lang-ar">تم تصميم هذا المتجر ليسلط الضوء على جمال وتنوع الحياة البرية في إمارة أبوظبي، ليقدم لك مجموعة من المقتنيات التي تعكس الكائنات والعادات بكل هدوء وفخامة.</span>
+                <span class="lang-en">This store is designed to highlight the beauty and diversity of Abu Dhabi's wildlife, offering a curated collection that reflects its creatures and customs with serene elegance.</span>
             </p>
             <a href="https://barrari-abudhabi.vercel.app/shop" target="_blank" class="btn-outline">
                 <span class="lang-ar">تسوق الآن</span>
@@ -594,42 +154,30 @@
         </div>
     </section>
 
-    <section class="bottom-section fade-in">
+   <section class="bottom-section fade-in">
         <div class="bottom-logo">
             <img src="https://i.imgur.com/EFpsR4T.png" alt="شعار براري أبوظبي" class="lang-ar">
             <img src=" https://i.imgur.com/bUlCJpZ.png" alt="Barari Abu Dhabi Logo" class="lang-en">
         </div>
-
+        
         <div class="footer-content" style="max-width: 800px; margin: 0 auto 30px auto;">
             <p style="color: var(--text-dim); font-size: 16px; line-height: 1.8;">
-                <span class="lang-ar">نلتزم في "براري أبوظبي" بتوثيق وحماية التراث الطبيعي والثقافي لإمارة أبوظبي. نسعى
-                    لنشر الوعي البيئي والمحافظة على استدامة حياتنا البرية للأجيال القادمة.</span>
-                <span class="lang-en">At "Barari Abu Dhabi", we are committed to documenting and protecting the natural
-                    and cultural heritage of Abu Dhabi. We strive to spread environmental awareness and preserve the
-                    sustainability of our wildlife for future generations.</span>
+                <span class="lang-ar">نلتزم في "براري أبوظبي" بتوثيق وحماية التراث الطبيعي والثقافي لإمارة أبوظبي. نسعى لنشر الوعي البيئي والمحافظة على استدامة حياتنا البرية للأجيال القادمة.</span>
+                <span class="lang-en">At "Barari Abu Dhabi", we are committed to documenting and protecting the natural and cultural heritage of Abu Dhabi. We strive to spread environmental awareness and preserve the sustainability of our wildlife for future generations.</span>
             </p>
         </div>
 
-        <div class="bottom-date"
-            style="font-size: 12px; border-top: 1px solid rgba(154, 123, 92, 0.2); padding-top: 20px; max-width: 600px; margin: 0 auto;">
-            <span class="lang-ar">جميع الحقوق محفوظة &copy; 2026 <a
-                    href="https://www.instagram.com/raffak.ae?igsh=MXBuMml1bWl3MDl1NQ%3D%3D&utm_source=qr"
-                    target="_blank"
-                    style="color: var(--accent-color); text-decoration: none; font-weight: bold; transition: color 0.3s ease;">رفك</a></span>
-            <span class="lang-en">All Rights Reserved &copy; 2026 <a
-                    href="https://www.instagram.com/raffak.ae?igsh=MXBuMml1bWl3MDl1NQ%3D%3D&utm_source=qr"
-                    target="_blank"
-                    style="color: var(--accent-color); text-decoration: none; font-weight: bold; transition: color 0.3s ease;">Raffak</a></span>
+        <div class="bottom-date" style="font-size: 12px; border-top: 1px solid rgba(154, 123, 92, 0.2); padding-top: 20px; max-width: 600px; margin: 0 auto;">
+            <span class="lang-ar">جميع الحقوق محفوظة &copy; 2026 <a href="https://www.instagram.com/raffak.ae?igsh=MXBuMml1bWl3MDl1NQ%3D%3D&utm_source=qr" target="_blank" style="color: var(--accent-color); text-decoration: none; font-weight: bold; transition: color 0.3s ease;">رفك</a></span>
+            <span class="lang-en">All Rights Reserved &copy; 2026 <a href="https://www.instagram.com/raffak.ae?igsh=MXBuMml1bWl3MDl1NQ%3D%3D&utm_source=qr" target="_blank" style="color: var(--accent-color); text-decoration: none; font-weight: bold; transition: color 0.3s ease;">Raffak</a></span>
         </div>
     </section>
 
-    <div id="luxuryOverlay" class="luxury-overlay">
-        <img src="https://www.visitdubai.com/-/media/gathercontent/article/g/guide-to-desert-wildlife/fallback-image/call-of-the-wild-dubais-desert-wildlifeherodtcm.jpg"
-            id="bg-animals" class="overlay-bg-image" alt="Animals Background">
-
-        <img src="https://cdn1-m.zahratalkhaleej.ae/store/archive/image/2024/12/31/072ccd8b-7f28-4469-987c-32536efbfa3f.jpg"
-            id="bg-plants" class="overlay-bg-image" alt="Plants Background">
-
+<div id="luxuryOverlay" class="luxury-overlay">
+        <img src="https://www.visitdubai.com/-/media/gathercontent/article/g/guide-to-desert-wildlife/fallback-image/call-of-the-wild-dubais-desert-wildlifeherodtcm.jpg" id="bg-animals" class="overlay-bg-image" alt="Animals Background">
+        
+        <img src="https://cdn1-m.zahratalkhaleej.ae/store/archive/image/2024/12/31/072ccd8b-7f28-4469-987c-32536efbfa3f.jpg" id="bg-plants" class="overlay-bg-image" alt="Plants Background">
+        
         <div class="overlay-dark-layer"></div>
         <span class="close-btn" onclick="closeOverlay()">&#10005;</span>
 
@@ -638,16 +186,16 @@
                 <span class="lang-ar">حيوانات</span>
                 <span class="lang-en">Animals</span>
             </a>
-
-            <a href="plants.html" onmouseenter="showBg('bg-plants')" onmouseleave="hideBgs()">
-                <span class="lang-ar">نباتات</span>
-                <span class="lang-en">Plants</span>
-            </a>
+            
+         <a href="plants.html" onmouseenter="showBg('bg-plants')" onmouseleave="hideBgs()">
+    <span class="lang-ar">نباتات</span>
+    <span class="lang-en">Plants</span>
+</a>
         </div>
     </div>
 
     <script src="navbar.js"></script>
-
+    
     <script>
         const overlay = document.getElementById('luxuryOverlay');
         function openOverlay() { overlay.classList.add('active'); document.body.style.overflow = 'hidden'; }
@@ -667,5 +215,4 @@
         document.querySelectorAll('.fade-in').forEach((element) => { observer.observe(element); });
     </script>
 </body>
-
 </html>

@@ -1,142 +1,35 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الكتب | Books & Literature</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@300;400&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Tajawal:wght@300;400&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg-deep: #2c1e16;
-            --bg-section: #3a281d;
-            --text-beige: #f0e5d8;
-            --text-dim: #c8b49c;
-            --accent-color: #9a7b5c;
-        }
+        :root { --bg-deep: #2c1e16; --bg-section: #3a281d; --text-beige: #f0e5d8; --text-dim: #c8b49c; --accent-color: #9a7b5c; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-deep); color: var(--text-beige); font-family: 'Tajawal', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; transition: direction 0.3s ease; }
+        h1, h2, h3, .serif-text { font-family: 'Amiri', serif; font-weight: normal; }
+        :lang(en) h1, :lang(en) h2, :lang(en) h3, :lang(en) .serif-text { font-family: 'Playfair Display', serif; }
+        [lang="ar"] .lang-en { display: none !important; }
+        [lang="en"] .lang-ar { display: none !important; }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        nav { background-color: rgba(44, 30, 22, 0.95); backdrop-filter: blur(10px); color: var(--text-beige); display: flex; justify-content: space-between; align-items: center; padding: 15px 50px; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(240, 229, 216, 0.05); }
+        .nav-left { display: flex; align-items: center; gap: 20px; }
+        [dir="rtl"] .logo-container { border-left: 1px solid var(--accent-color); padding-left: 20px; }
+        [dir="ltr"] .logo-container { border-right: 1px solid var(--accent-color); padding-right: 20px; }
+        .logo-container img { height: 60px; width: auto; object-fit: contain; display: block; }
+        .nav-date { font-size: 14px; color: var(--text-dim); }
+        .nav-right { display: flex; align-items: center; gap: 20px; }
+        .nav-right a { color: var(--text-beige); text-decoration: none; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; transition: color 0.3s ease; cursor: pointer;}
+        .nav-right a:hover { color: #ffffff; }
+        .lang-toggle-btn { background: transparent; border: 1px solid var(--accent-color); color: var(--text-beige); padding: 5px 15px; border-radius: 20px; cursor: pointer; font-family: 'Tajawal', sans-serif; transition: all 0.3s ease; }
+        .lang-toggle-btn:hover { background: var(--text-beige); color: var(--bg-deep); }
 
-        body {
-            background-color: var(--bg-deep);
-            color: var(--text-beige);
-            font-family: 'Tajawal', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
-            transition: direction 0.3s ease;
-        }
-
-        h1,
-        h2,
-        h3,
-        .serif-text {
-            font-family: 'Amiri', serif;
-            font-weight: normal;
-        }
-
-        :lang(en) h1,
-        :lang(en) h2,
-        :lang(en) h3,
-        :lang(en) .serif-text {
-            font-family: 'Playfair Display', serif;
-        }
-
-        [lang="ar"] .lang-en {
-            display: none !important;
-        }
-
-        [lang="en"] .lang-ar {
-            display: none !important;
-        }
-
-        nav {
-            background-color: rgba(44, 30, 22, 0.95);
-            backdrop-filter: blur(10px);
-            color: var(--text-beige);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 50px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 1px solid rgba(240, 229, 216, 0.05);
-        }
-
-        .nav-left {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        [dir="rtl"] .logo-container {
-            border-left: 1px solid var(--accent-color);
-            padding-left: 20px;
-        }
-
-        [dir="ltr"] .logo-container {
-            border-right: 1px solid var(--accent-color);
-            padding-right: 20px;
-        }
-
-        .logo-container img {
-            height: 60px;
-            width: auto;
-            object-fit: contain;
-            display: block;
-        }
-
-        .nav-date {
-            font-size: 14px;
-            color: var(--text-dim);
-        }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .nav-right a {
-            color: var(--text-beige);
-            text-decoration: none;
-            font-size: 13px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: color 0.3s ease;
-            cursor: pointer;
-        }
-
-        .nav-right a:hover {
-            color: #ffffff;
-        }
-
-        .lang-toggle-btn {
-            background: transparent;
-            border: 1px solid var(--accent-color);
-            color: var(--text-beige);
-            padding: 5px 15px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-family: 'Tajawal', sans-serif;
-            transition: all 0.3s ease;
-        }
-
-        .lang-toggle-btn:hover {
-            background: var(--text-beige);
-            color: var(--bg-deep);
-        }
-
-        .gallery-header {
-            position: relative;
-            text-align: center;
-            padding: 150px 20px 100px;
+        .gallery-header { 
+            position: relative; 
+            text-align: center; 
+            padding: 150px 20px 100px; 
             overflow: hidden;
             min-height: 70vh;
             display: flex;
@@ -149,182 +42,53 @@
 
         .header-video {
             position: absolute;
-            top: 50%;
-            left: 50%;
+            top: 50%; left: 50%;
             transform: translate(-50%, -50%);
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
+            min-width: 100%; min-height: 100%;
+            width: auto; height: auto;
             z-index: 1;
             object-fit: cover;
             opacity: 0.8;
         }
 
-        .header-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(44, 30, 22, 0.6), rgba(44, 30, 22, 0.95));
-            z-index: 2;
-        }
+        .header-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(44, 30, 22, 0.6), rgba(44, 30, 22, 0.95)); z-index: 2; }
+        .header-content { position: relative; z-index: 3; width: 100%; }
+        .gallery-header h1 { font-size: 60px; color: var(--text-beige); letter-spacing: 2px; text-shadow: 0 5px 15px rgba(0,0,0,0.8); margin: 0; }
+        .gallery-header p { color: var(--text-dim); font-size: 24px; margin-top: 15px; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
 
-        .header-content {
-            position: relative;
-            z-index: 3;
-            width: 100%;
-        }
+        .video-controls { position: absolute; bottom: 30px; right: 40px; z-index: 10; display: flex; gap: 15px; }
+        [dir="ltr"] .video-controls { right: auto; left: 40px; }
 
-        .gallery-header h1 {
-            font-size: 60px;
-            color: var(--text-beige);
-            letter-spacing: 2px;
-            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
-            margin: 0;
-        }
+        .glass-btn { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(240, 229, 216, 0.3); color: var(--text-beige); width: 50px; height: 50px; border-radius: 50%; cursor: pointer; display: flex; justify-content: center; align-items: center; transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); box-shadow: 0 4px 15px rgba(0,0,0,0.1); padding: 0; }
+        .glass-btn svg { width: 22px; height: 22px; stroke: currentColor; stroke-width: 1.5; fill: none; transition: transform 0.3s ease; }
+        .glass-btn:hover { background: rgba(240, 229, 216, 0.15); border-color: rgba(240, 229, 216, 0.8); transform: translateY(-3px); color: #ffffff; }
+        .glass-btn:hover svg { transform: scale(1.1); }
 
-        .gallery-header p {
-            color: var(--text-dim);
-            font-size: 24px;
-            margin-top: 15px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
-        }
+        .animals-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; padding: 60px 10% 100px; max-width: 1400px; margin: 0 auto; }
+        .animal-item { position: relative; height: 600px; border-radius: 8px; overflow: hidden; display: flex; align-items: flex-end; justify-content: center; box-shadow: 0 10px 30px rgba(0,0,0,0.5); cursor: pointer; }
+        
+        .animal-item img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; transition: transform 1s ease, filter 1s ease; filter: brightness(0.9); }
+        .animal-item::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(26,24,22,0.95) 0%, rgba(26,24,22,0.1) 100%); z-index: 2; transition: background 0.6s ease; }
+        
+        .animal-item:hover img { transform: scale(1.05); filter: brightness(0.6); }
+        .animal-item:hover::after { background: rgba(26,24,22,0.85); }
 
-        .video-controls {
-            position: absolute;
-            bottom: 30px;
-            right: 40px;
-            z-index: 10;
-            display: flex;
-            gap: 15px;
-        }
-
-        [dir="ltr"] .video-controls {
-            right: auto;
-            left: 40px;
-        }
-
-        .glass-btn {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(240, 229, 216, 0.3);
-            color: var(--text-beige);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            padding: 0;
-        }
-
-        .glass-btn svg {
-            width: 22px;
-            height: 22px;
-            stroke: currentColor;
-            stroke-width: 1.5;
-            fill: none;
-            transition: transform 0.3s ease;
-        }
-
-        .glass-btn:hover {
-            background: rgba(240, 229, 216, 0.15);
-            border-color: rgba(240, 229, 216, 0.8);
-            transform: translateY(-3px);
-            color: #ffffff;
-        }
-
-        .glass-btn:hover svg {
-            transform: scale(1.1);
-        }
-
-        .animals-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
-            padding: 60px 10% 100px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .animal-item {
-            position: relative;
-            height: 600px;
-            border-radius: 8px;
-            overflow: hidden;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            cursor: pointer;
-        }
-
-        .animal-item img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 1;
-            transition: transform 1s ease, filter 1s ease;
-            filter: brightness(0.9);
-        }
-
-        .animal-item::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to top, rgba(26, 24, 22, 0.95) 0%, rgba(26, 24, 22, 0.1) 100%);
-            z-index: 2;
-            transition: background 0.6s ease;
-        }
-
-        .animal-item:hover img {
-            transform: scale(1.05);
-            filter: brightness(0.6);
-        }
-
-        .animal-item:hover::after {
-            background: rgba(26, 24, 22, 0.85);
-        }
-
-        .animal-info {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 3;
-            text-align: right;
-            padding: 40px 30px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
+        .animal-info { 
+            position: absolute; 
+            bottom: 0; left: 0; width: 100%; height: 100%; 
+            z-index: 3; text-align: right; 
+            padding: 40px 30px; 
+            display: flex; flex-direction: column; 
+            justify-content: flex-end; 
             transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
         }
+        
+        [dir="ltr"] .animal-info { text-align: left; }
 
-        [dir="ltr"] .animal-info {
-            text-align: left;
-        }
-
-        .animal-info h3 {
-            font-size: 28px;
-            color: var(--text-beige);
-            margin-bottom: 10px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
-            text-align: center;
-            border-bottom: 1px solid rgba(154, 123, 92, 0.3);
-            padding-bottom: 15px;
+        .animal-info h3 { 
+            font-size: 28px; color: var(--text-beige); margin-bottom: 10px; 
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8); text-align: center;
+            border-bottom: 1px solid rgba(154, 123, 92, 0.3); padding-bottom: 15px;
             transition: margin-bottom 0.6s ease;
         }
 
@@ -332,210 +96,88 @@
             justify-content: flex-start;
             padding-top: 50px;
         }
-
-        .info-details {
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.4s ease 0.1s, visibility 0.4s;
-            max-height: 400px;
-            overflow-y: auto;
+        
+        .info-details { 
+            opacity: 0; visibility: hidden;
+            transition: opacity 0.4s ease 0.1s, visibility 0.4s; 
+            max-height: 400px; 
+            overflow-y: auto; 
             padding-right: 15px;
             margin-top: 20px;
         }
 
-        [dir="ltr"] .info-details {
-            padding-right: 0;
-            padding-left: 15px;
+        [dir="ltr"] .info-details { padding-right: 0; padding-left: 15px; }
+
+        .animal-item:hover .info-details { 
+            opacity: 1; visibility: visible;
         }
 
-        .animal-item:hover .info-details {
-            opacity: 1;
-            visibility: visible;
-        }
+        .info-details::-webkit-scrollbar { width: 5px; }
+        .info-details::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); border-radius: 10px; }
+        .info-details::-webkit-scrollbar-thumb { background: var(--accent-color); border-radius: 10px; }
 
-        .info-details::-webkit-scrollbar {
-            width: 5px;
-        }
+        .book-meta { margin-bottom: 20px; }
+        .book-meta p { font-size: 17px; color: var(--accent-color); margin-bottom: 8px; font-weight: bold; }
+        .book-meta span { color: var(--text-beige); font-weight: normal; margin-right: 10px; font-family: 'Tajawal', sans-serif;}
+        [dir="ltr"] .book-meta span { margin-right: 0; margin-left: 10px; }
+        .book-meta span.isbn { font-family: sans-serif; letter-spacing: 1px; }
+        
+        .book-desc { font-size: 16px; color: var(--text-dim); line-height: 1.8; text-align: justify; }
 
-        .info-details::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-        }
+        .bottom-section { background-color: var(--bg-deep); padding: 100px 20px; text-align: center; border-top: 1px solid rgba(240, 229, 216, 0.05); }
+        .bottom-logo img { height: 120px; width: auto; margin: 0 auto 30px auto; display: block; object-fit: contain; }
+        .bottom-date { font-size: 24px; line-height: 1.8; color: var(--text-dim); }
 
-        .info-details::-webkit-scrollbar-thumb {
-            background: var(--accent-color);
-            border-radius: 10px;
-        }
-
-        .book-meta {
-            margin-bottom: 20px;
-        }
-
-        .book-meta p {
-            font-size: 17px;
-            color: var(--accent-color);
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
-
-        .book-meta span {
-            color: var(--text-beige);
-            font-weight: normal;
-            margin-right: 10px;
-            font-family: 'Tajawal', sans-serif;
-        }
-
-        [dir="ltr"] .book-meta span {
-            margin-right: 0;
-            margin-left: 10px;
-        }
-
-        .book-meta span.isbn {
-            font-family: sans-serif;
-            letter-spacing: 1px;
-        }
-
-        .book-desc {
-            font-size: 16px;
-            color: var(--text-dim);
-            line-height: 1.8;
-            text-align: justify;
-        }
-
-        .bottom-section {
-            background-color: var(--bg-deep);
-            padding: 100px 20px;
-            text-align: center;
-            border-top: 1px solid rgba(240, 229, 216, 0.05);
-        }
-
-        .bottom-logo img {
-            height: 120px;
-            width: auto;
-            margin: 0 auto 30px auto;
-            display: block;
-            object-fit: contain;
-        }
-
-        .bottom-date {
-            font-size: 24px;
-            line-height: 1.8;
-            color: var(--text-dim);
-        }
-
-        @media (max-width: 1000px) {
-            .animals-grid {
-                grid-template-columns: 1fr;
-                padding: 40px 5%;
-            }
-        }
-
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                padding: 20px;
-                gap: 15px;
-            }
-
-            .nav-left,
-            .nav-right {
-                width: 100%;
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-
-            [dir="rtl"] .logo-container,
-            [dir="ltr"] .logo-container {
-                border: none;
-                padding: 0;
-            }
-
-            .gallery-header h1 {
-                font-size: 40px;
-            }
-
-            .video-controls {
-                bottom: 15px;
-                right: 15px;
-                gap: 10px;
-            }
-
-            [dir="ltr"] .video-controls {
-                left: 15px;
-            }
-
-            .glass-btn {
-                width: 42px;
-                height: 42px;
-            }
-
-            .glass-btn svg {
-                width: 18px;
-                height: 18px;
-            }
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 1s ease, transform 1s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        @media (max-width: 1000px) { .animals-grid { grid-template-columns: 1fr; padding: 40px 5%; } }
+        @media (max-width: 768px) { nav { flex-direction: column; padding: 20px; gap: 15px; } .nav-left, .nav-right { width: 100%; justify-content: center; flex-wrap: wrap; } [dir="rtl"] .logo-container, [dir="ltr"] .logo-container { border: none; padding: 0; } .gallery-header h1 { font-size: 40px; } .video-controls { bottom: 15px; right: 15px; gap: 10px; } [dir="ltr"] .video-controls { left: 15px; } .glass-btn { width: 42px; height: 42px; } .glass-btn svg { width: 18px; height: 18px; } }
+        
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 1s ease, transform 1s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
     </style>
 </head>
-
 <body>
 
-    <div id="navbar-container" style="position: sticky; top: 0; z-index: 100;"></div>
+<div id="navbar-container" style="position: sticky; top: 0; z-index: 100;"></div>
 
     <div id="headerSection" class="gallery-header fade-in">
-
+        
         <video id="bgVideo" class="header-video" autoplay loop muted playsinline>
             <source src="https://i.imgur.com/zfBHWpY.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
-
+        
         <div class="header-overlay"></div>
-
+        
         <div class="header-content">
             <h1>
                 <span class="lang-ar">المكتبة</span>
-                <span class="lang-en">Library</span>
+                <span class="lang-en">سLibrary</span>
             </h1>
             <p>
                 <span class="lang-ar">صفحات توثق تاريخنا وبيئتنا وتراثنا العريق بكل تفاصيله</span>
-                <span class="lang-en">Pages documenting our history, environment, and rich heritage in full
-                    detail</span>
+                <span class="lang-en">Pages documenting our history, environment, and rich heritage in full detail</span>
             </p>
         </div>
 
         <div class="video-controls">
             <button class="glass-btn" onclick="toggleAudio()" title="Sound">
                 <span id="audioIcon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round"
-                        stroke-linejoin="round">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
                         <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
                         <line x1="23" y1="1" x2="1" y2="23"></line>
                     </svg>
                 </span>
             </button>
             <button class="glass-btn" onclick="openFullscreen()" title="Fullscreen">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path
-                        d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3">
-                    </path>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
                 </svg>
             </button>
         </div>
     </div>
 
     <div class="animals-grid">
-
+        
         <div class="animal-item fade-in">
             <img src="https://i.imgur.com/kRCYSuA.png" alt="الأطلس البيئي لإمارة أبوظبي">
             <div class="animal-info">
@@ -545,26 +187,16 @@
                 </h3>
                 <div class="info-details">
                     <div class="book-meta">
-                        <p><span class="lang-ar">المؤلف / الجهة : </span><span class="lang-en">Author / Organization:
-                            </span><span><span class="lang-ar">هيئة البيئة – أبوظبي (EAD)</span><span
-                                    class="lang-en">Environment Agency – Abu Dhabi (EAD)</span></span></p>
-                        <p><span class="lang-ar">اللغة : </span><span class="lang-en">Language: </span><span><span
-                                    class="lang-ar">إنجليزية</span><span class="lang-en">English</span></span></p>
-                        <p><span class="lang-ar">سنة النشر : </span><span class="lang-en">Publication Year:
-                            </span><span>2011</span></p>
-                        <p><span class="lang-ar">الناشر : </span><span class="lang-en">Publisher: </span><span>Motivate
-                                Publishing</span></p>
+                        <p><span class="lang-ar">المؤلف / الجهة : </span><span class="lang-en">Author / Organization: </span><span><span class="lang-ar">هيئة البيئة – أبوظبي (EAD)</span><span class="lang-en">Environment Agency – Abu Dhabi (EAD)</span></span></p>
+                        <p><span class="lang-ar">اللغة : </span><span class="lang-en">Language: </span><span><span class="lang-ar">إنجليزية</span><span class="lang-en">English</span></span></p>
+                        <p><span class="lang-ar">سنة النشر : </span><span class="lang-en">Publication Year: </span><span>2011</span></p>
+                        <p><span class="lang-ar">الناشر : </span><span class="lang-en">Publisher: </span><span>Motivate Publishing</span></p>
                         <p>ISBN : <span class="isbn">978-1-86063-316-4</span></p>
-                        <p><span class="lang-ar">عدد الصفحات : </span><span class="lang-en">Pages: </span><span><span
-                                    class="lang-ar">حوالي 200 صفحة</span><span class="lang-en">Approx. 200
-                                    Pages</span></span></p>
+                        <p><span class="lang-ar">عدد الصفحات : </span><span class="lang-en">Pages: </span><span><span class="lang-ar">حوالي 200 صفحة</span><span class="lang-en">Approx. 200 Pages</span></span></p>
                     </div>
                     <div class="book-desc">
-                        <span class="lang-ar">أطلس بيئي شامل يربط بين التراث الطبيعي، والتاريخ البيئي، والإنسان،
-                            والممارسات البيئية في إمارة أبوظبي، ويحتوي على صور وخرائط وإحصاءات.</span>
-                        <span class="lang-en">A comprehensive environmental atlas linking natural heritage,
-                            environmental history, humans, and environmental practices in Abu Dhabi, featuring photos,
-                            maps, and statistics.</span>
+                        <span class="lang-ar">أطلس بيئي شامل يربط بين التراث الطبيعي، والتاريخ البيئي، والإنسان، والممارسات البيئية في إمارة أبوظبي، ويحتوي على صور وخرائط وإحصاءات.</span>
+                        <span class="lang-en">A comprehensive environmental atlas linking natural heritage, environmental history, humans, and environmental practices in Abu Dhabi, featuring photos, maps, and statistics.</span>
                     </div>
                 </div>
             </div>
@@ -579,22 +211,14 @@
                 </h3>
                 <div class="info-details">
                     <div class="book-meta">
-                        <p><span class="lang-ar">المؤلف : </span><span class="lang-en">Author: </span><span><span
-                                    class="lang-ar">كلود ريف</span><span class="lang-en">Claude Rives</span></span></p>
-                        <p><span class="lang-ar">اللغة : </span><span class="lang-en">Language: </span><span><span
-                                    class="lang-ar">عربي / إنجليزي</span><span class="lang-en">Arabic /
-                                    English</span></span></p>
-                        <p><span class="lang-ar">سنة النشر : </span><span class="lang-en">Publication Year:
-                            </span><span>2012</span></p>
-                        <p><span class="lang-ar">عدد الصفحات : </span><span class="lang-en">Pages: </span><span><span
-                                    class="lang-ar">حوالي 222 صفحة</span><span class="lang-en">Approx. 222
-                                    Pages</span></span></p>
+                        <p><span class="lang-ar">المؤلف : </span><span class="lang-en">Author: </span><span><span class="lang-ar">كلود ريف</span><span class="lang-en">Claude Rives</span></span></p>
+                        <p><span class="lang-ar">اللغة : </span><span class="lang-en">Language: </span><span><span class="lang-ar">عربي / إنجليزي</span><span class="lang-en">Arabic / English</span></span></p>
+                        <p><span class="lang-ar">سنة النشر : </span><span class="lang-en">Publication Year: </span><span>2012</span></p>
+                        <p><span class="lang-ar">عدد الصفحات : </span><span class="lang-en">Pages: </span><span><span class="lang-ar">حوالي 222 صفحة</span><span class="lang-en">Approx. 222 Pages</span></span></p>
                     </div>
                     <div class="book-desc">
-                        <span class="lang-ar">يسلط هذا الكتاب الضوء على المحميات الطبيعية في إمارة أبوظبي، وجهود حماية
-                            الكائنات الحية، ودور الإمارة في صون البيئة والتنوع الحيوي.</span>
-                        <span class="lang-en">This book highlights the nature reserves in Abu Dhabi, wildlife protection
-                            efforts, and the Emirate's role in preserving the environment and biodiversity.</span>
+                        <span class="lang-ar">يسلط هذا الكتاب الضوء على المحميات الطبيعية في إمارة أبوظبي، وجهود حماية الكائنات الحية، ودور الإمارة في صون البيئة والتنوع الحيوي.</span>
+                        <span class="lang-en">This book highlights the nature reserves in Abu Dhabi, wildlife protection efforts, and the Emirate's role in preserving the environment and biodiversity.</span>
                     </div>
                 </div>
             </div>
@@ -609,25 +233,14 @@
                 </h3>
                 <div class="info-details">
                     <div class="book-meta">
-                        <p><span class="lang-ar">المؤلف / الجهة الناشرة : </span><span class="lang-en">Author /
-                                Publisher: </span><span><span class="lang-ar">هيئة البيئة – أبوظبي</span><span
-                                    class="lang-en">Environment Agency – Abu Dhabi</span></span></p>
-                        <p><span class="lang-ar">اللغة : </span><span class="lang-en">Language: </span><span><span
-                                    class="lang-ar">عربي وإنجليزي</span><span class="lang-en">Arabic &
-                                    English</span></span></p>
-                        <p><span class="lang-ar">سنة النشر : </span><span class="lang-en">Publication Year:
-                            </span><span>2020</span></p>
-                        <p><span class="lang-ar">عدد الصفحات : </span><span class="lang-en">Pages: </span><span><span
-                                    class="lang-ar">حوالي 140 صفحة</span><span class="lang-en">Approx. 140
-                                    Pages</span></span></p>
+                        <p><span class="lang-ar">المؤلف / الجهة الناشرة : </span><span class="lang-en">Author / Publisher: </span><span><span class="lang-ar">هيئة البيئة – أبوظبي</span><span class="lang-en">Environment Agency – Abu Dhabi</span></span></p>
+                        <p><span class="lang-ar">اللغة : </span><span class="lang-en">Language: </span><span><span class="lang-ar">عربي وإنجليزي</span><span class="lang-en">Arabic & English</span></span></p>
+                        <p><span class="lang-ar">سنة النشر : </span><span class="lang-en">Publication Year: </span><span>2020</span></p>
+                        <p><span class="lang-ar">عدد الصفحات : </span><span class="lang-en">Pages: </span><span><span class="lang-ar">حوالي 140 صفحة</span><span class="lang-en">Approx. 140 Pages</span></span></p>
                     </div>
                     <div class="book-desc">
-                        <span class="lang-ar">يوثق هذا الكتاب جهود هيئة البيئة – أبوظبي خلال 25 سنة في الحفاظ على البيئة
-                            والحياة البرية والموروث الطبيعي في الإمارات، من حماية الأنواع إلى تأسيس المراكز
-                            البحثية.</span>
-                        <span class="lang-en">This book documents the 25-year efforts of the Environment Agency – Abu
-                            Dhabi in preserving the environment, wildlife, and natural heritage in the UAE, from species
-                            protection to establishing research centers.</span>
+                        <span class="lang-ar">يوثق هذا الكتاب جهود هيئة البيئة – أبوظبي خلال 25 سنة في الحفاظ على البيئة والحياة البرية والموروث الطبيعي في الإمارات، من حماية الأنواع إلى تأسيس المراكز البحثية.</span>
+                        <span class="lang-en">This book documents the 25-year efforts of the Environment Agency – Abu Dhabi in preserving the environment, wildlife, and natural heritage in the UAE, from species protection to establishing research centers.</span>
                     </div>
                 </div>
             </div>
@@ -642,33 +255,22 @@
                 </h3>
                 <div class="info-details">
                     <div class="book-meta">
-                        <p><span class="lang-ar">المؤلف / المحرر : </span><span class="lang-en">Author / Editor:
-                            </span><span>John A. Burt</span></p>
-                        <p><span class="lang-ar">دار النشر : </span><span class="lang-en">Publisher:
-                            </span><span>Springer Nature</span></p>
-                        <p><span class="lang-ar">اللغة : </span><span class="lang-en">Language: </span><span><span
-                                    class="lang-ar">إنجليزية</span><span class="lang-en">English</span></span></p>
-                        <p><span class="lang-ar">سنة النشر : </span><span class="lang-en">Publication Year:
-                            </span><span>2023</span></p>
+                        <p><span class="lang-ar">المؤلف / المحرر : </span><span class="lang-en">Author / Editor: </span><span>John A. Burt</span></p>
+                        <p><span class="lang-ar">دار النشر : </span><span class="lang-en">Publisher: </span><span>Springer Nature</span></p>
+                        <p><span class="lang-ar">اللغة : </span><span class="lang-en">Language: </span><span><span class="lang-ar">إنجليزية</span><span class="lang-en">English</span></span></p>
+                        <p><span class="lang-ar">سنة النشر : </span><span class="lang-en">Publication Year: </span><span>2023</span></p>
                         <p>ISBN : <span class="isbn">978-3-031-39637-1</span></p>
-                        <p><span class="lang-ar">عدد الصفحات : </span><span class="lang-en">Pages: </span><span><span
-                                    class="lang-ar">حوالي 748 صفحة</span><span class="lang-en">Approx. 748
-                                    Pages</span></span></p>
+                        <p><span class="lang-ar">عدد الصفحات : </span><span class="lang-en">Pages: </span><span><span class="lang-ar">حوالي 748 صفحة</span><span class="lang-en">Approx. 748 Pages</span></span></p>
                     </div>
                     <div class="book-desc">
-                        <span class="lang-ar">يتناول هذا الكتاب تاريخ البيئة الطبيعية في الإمارات، بما يشمل التنوع
-                            البيولوجي، والنظم البيئية الصحراوية والبحرية، والأنواع النباتية والحيوانية، بالإضافة إلى
-                            علاقة الإنسان بالبيئة.</span>
-                        <span class="lang-en">This book covers the natural environmental history in the UAE, including
-                            biodiversity, desert and marine ecosystems, flora and fauna species, as well as the human
-                            relationship with the environment.</span>
+                        <span class="lang-ar">يتناول هذا الكتاب تاريخ البيئة الطبيعية في الإمارات، بما يشمل التنوع البيولوجي، والنظم البيئية الصحراوية والبحرية، والأنواع النباتية والحيوانية، بالإضافة إلى علاقة الإنسان بالبيئة.</span>
+                        <span class="lang-en">This book covers the natural environmental history in the UAE, including biodiversity, desert and marine ecosystems, flora and fauna species, as well as the human relationship with the environment.</span>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="animal-item fade-in">
-            <img src="https://i.postimg.cc/tCqPrjmt/Gemini-Generated-Image-rib8kwrib8kwrib8.png"
-                alt="The Comprehensive Guide to the Wild Flowers of the United Arab Emirates">
+                <div class="animal-item fade-in">
+            <img src="https://i.postimg.cc/tCqPrjmt/Gemini-Generated-Image-rib8kwrib8kwrib8.png" alt="The Comprehensive Guide to the Wild Flowers of the United Arab Emirates">
             <div class="animal-info">
                 <h3>
                     <span class="lang-ar">The Comprehensive Guide to the Wild Flowers of the United Arab Emirates</span>
@@ -676,32 +278,22 @@
                 </h3>
                 <div class="info-details">
                     <div class="book-meta">
-                        <p><span class="lang-ar">المؤلف : </span><span class="lang-en">Author: </span><span>Marijcke
-                                Jongbloed</span></p>
-                        <p><span class="lang-ar">اللغة : </span><span class="lang-en">Language: </span><span><span
-                                    class="lang-ar">الإنجليزية</span><span class="lang-en">English</span></span></p>
-                        <p><span class="lang-ar">سنة النشر : </span><span class="lang-en">Publication Year:
-                            </span><span>2003</span></p>
+                        <p><span class="lang-ar">المؤلف : </span><span class="lang-en">Author: </span><span>Marijcke Jongbloed</span></p>
+                        <p><span class="lang-ar">اللغة : </span><span class="lang-en">Language: </span><span><span class="lang-ar">الإنجليزية</span><span class="lang-en">English</span></span></p>
+                        <p><span class="lang-ar">سنة النشر : </span><span class="lang-en">Publication Year: </span><span>2003</span></p>
                         <p>ISBN : <span class="isbn">9789948408241</span></p>
-                        <p><span class="lang-ar">عدد الصفحات : </span><span class="lang-en">Pages: </span><span><span
-                                    class="lang-ar">576 صفحة</span><span class="lang-en">576 Pages</span></span></p>
+                        <p><span class="lang-ar">عدد الصفحات : </span><span class="lang-en">Pages: </span><span><span class="lang-ar">576 صفحة</span><span class="lang-en">576 Pages</span></span></p>
                     </div>
                     <div class="book-desc">
-                        <span class="lang-ar">دليل شامل للنباتات البرية في الإمارات، يعرف بمئات الأنواع من الأزهار
-                            والنباتات الصحراوية مع وصف علمي وصور، ويُعد مرجعاً مهماً لدراسة التنوع النباتي في البيئة
-                            الصحراوية وخاصة في أبوظبي.</span>
-                        <span class="lang-en">A comprehensive guide to wild plants in the UAE, introducing hundreds of
-                            flower and desert plant species with scientific descriptions and photographs. It is an
-                            important reference for studying plant diversity in desert environments, especially in Abu
-                            Dhabi.</span>
+                        <span class="lang-ar">دليل شامل للنباتات البرية في الإمارات، يعرف بمئات الأنواع من الأزهار والنباتات الصحراوية مع وصف علمي وصور، ويُعد مرجعاً مهماً لدراسة التنوع النباتي في البيئة الصحراوية وخاصة في أبوظبي.</span>
+                        <span class="lang-en">A comprehensive guide to wild plants in the UAE, introducing hundreds of flower and desert plant species with scientific descriptions and photographs. It is an important reference for studying plant diversity in desert environments, especially in Abu Dhabi.</span>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="animal-item fade-in" style="transition-delay: 0.2s;">
-            <img src="https://i.postimg.cc/kG1rPCN9/Gemini-Generated-Image-5nw2ku5nw2ku5nw2-(1).png"
-                alt="Desert Ecology of Abu Dhabi: A Review and Recent Studies">
+            <img src="https://i.postimg.cc/kG1rPCN9/Gemini-Generated-Image-5nw2ku5nw2ku5nw2-(1).png" alt="Desert Ecology of Abu Dhabi: A Review and Recent Studies">
             <div class="animal-info">
                 <h3>
                     <span class="lang-ar">Desert Ecology of Abu Dhabi: A Review and Recent Studies</span>
@@ -709,29 +301,22 @@
                 </h3>
                 <div class="info-details">
                     <div class="book-meta">
-                        <p><span class="lang-ar">المحرر : </span><span class="lang-en">Editor: </span><span>Patrick E.
-                                Osborne</span></p>
-                        <p><span class="lang-ar">اللغة : </span><span class="lang-en">Language: </span><span><span
-                                    class="lang-ar">الإنجليزية</span><span class="lang-en">English</span></span></p>
-                        <p><span class="lang-ar">سنة النشر : </span><span class="lang-en">Publication Year:
-                            </span><span>1996</span></p>
+                        <p><span class="lang-ar">المحرر : </span><span class="lang-en">Editor: </span><span>Patrick E. Osborne</span></p>
+                        <p><span class="lang-ar">اللغة : </span><span class="lang-en">Language: </span><span><span class="lang-ar">الإنجليزية</span><span class="lang-en">English</span></span></p>
+                        <p><span class="lang-ar">سنة النشر : </span><span class="lang-en">Publication Year: </span><span>1996</span></p>
                         <p>ISBN : <span class="isbn">9781874357056</span></p>
-                        <p><span class="lang-ar">عدد الصفحات : </span><span class="lang-en">Pages: </span><span><span
-                                    class="lang-ar">236 صفحة</span><span class="lang-en">236 Pages</span></span></p>
+                        <p><span class="lang-ar">عدد الصفحات : </span><span class="lang-en">Pages: </span><span><span class="lang-ar">236 صفحة</span><span class="lang-en">236 Pages</span></span></p>
                     </div>
                     <div class="book-desc">
-                        <span class="lang-ar">يركز على البيئة الصحراوية في أبوظبي، ويشرح النباتات الصحراوية والحيوانات
-                            والتكيفات البيئية والدراسات الحديثة حول النظام البيئي الصحراوي.</span>
-                        <span class="lang-en">Focuses on Abu Dhabi’s desert environment, explaining desert plants,
-                            animals, ecological adaptations, and recent studies on the desert ecosystem.</span>
+                        <span class="lang-ar">يركز على البيئة الصحراوية في أبوظبي، ويشرح النباتات الصحراوية والحيوانات والتكيفات البيئية والدراسات الحديثة حول النظام البيئي الصحراوي.</span>
+                        <span class="lang-en">Focuses on Abu Dhabi’s desert environment, explaining desert plants, animals, ecological adaptations, and recent studies on the desert ecosystem.</span>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="animal-item fade-in">
-            <img src="https://i.postimg.cc/dt6PG8zt/Gemini-Generated-Image-pcx40apcx40apcx4.png"
-                alt="Nature Walks: Wildlife Encounters in the UAE">
+            <img src="https://i.postimg.cc/dt6PG8zt/Gemini-Generated-Image-pcx40apcx40apcx4.png" alt="Nature Walks: Wildlife Encounters in the UAE">
             <div class="animal-info">
                 <h3>
                     <span class="lang-ar">Nature Walks: Wildlife Encounters in the UAE</span>
@@ -739,29 +324,22 @@
                 </h3>
                 <div class="info-details">
                     <div class="book-meta">
-                        <p><span class="lang-ar">المؤلف : </span><span class="lang-en">Author: </span><span>Katherine
-                                Rich</span></p>
-                        <p><span class="lang-ar">اللغة : </span><span class="lang-en">Language: </span><span><span
-                                    class="lang-ar">الإنجليزية</span><span class="lang-en">English</span></span></p>
-                        <p><span class="lang-ar">سنة النشر : </span><span class="lang-en">Publication Year:
-                            </span><span>2024</span></p>
+                        <p><span class="lang-ar">المؤلف : </span><span class="lang-en">Author: </span><span>Katherine Rich</span></p>
+                        <p><span class="lang-ar">اللغة : </span><span class="lang-en">Language: </span><span><span class="lang-ar">الإنجليزية</span><span class="lang-en">English</span></span></p>
+                        <p><span class="lang-ar">سنة النشر : </span><span class="lang-en">Publication Year: </span><span>2024</span></p>
                         <p>ISBN : <span class="isbn">9789948722618</span></p>
-                        <p><span class="lang-ar">عدد الصفحات : </span><span class="lang-en">Pages: </span><span><span
-                                    class="lang-ar">58 صفحة</span><span class="lang-en">58 Pages</span></span></p>
+                        <p><span class="lang-ar">عدد الصفحات : </span><span class="lang-en">Pages: </span><span><span class="lang-ar">58 صفحة</span><span class="lang-en">58 Pages</span></span></p>
                     </div>
                     <div class="book-desc">
-                        <span class="lang-ar">كتاب مبسط يصف الحياة البرية في الإمارات (نباتات، حيوانات، الصحراء) بأسلوب
-                            قصصي مناسب للمبتدئين.</span>
-                        <span class="lang-en">A simple book describing wildlife in the UAE, including plants, animals,
-                            and the desert, in a narrative style suitable for beginners.</span>
+                        <span class="lang-ar">كتاب مبسط يصف الحياة البرية في الإمارات (نباتات، حيوانات، الصحراء) بأسلوب قصصي مناسب للمبتدئين.</span>
+                        <span class="lang-en">A simple book describing wildlife in the UAE, including plants, animals, and the desert, in a narrative style suitable for beginners.</span>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="animal-item fade-in" style="transition-delay: 0.2s;">
-            <img src="https://i.postimg.cc/NGNZMgTB/Gemini-Generated-Image-iouhr7iouhr7iouh.png"
-                alt="النباتات البرية المزهرة في دولة الإمارات العربية المتحدة">
+            <img src="https://i.postimg.cc/NGNZMgTB/Gemini-Generated-Image-iouhr7iouhr7iouh.png" alt="النباتات البرية المزهرة في دولة الإمارات العربية المتحدة">
             <div class="animal-info">
                 <h3>
                     <span class="lang-ar">النباتات البرية المزهرة في دولة الإمارات العربية المتحدة</span>
@@ -769,56 +347,37 @@
                 </h3>
                 <div class="info-details">
                     <div class="book-meta">
-                        <p><span class="lang-ar">المؤلف : </span><span class="lang-en">Author: </span><span><span
-                                    class="lang-ar">فوزي محمد كريم</span><span class="lang-en">Fawzi Mohammed
-                                    Karim</span></span></p>
-                        <p><span class="lang-ar">اللغة : </span><span class="lang-en">Language: </span><span><span
-                                    class="lang-ar">الإنجليزية / العربية</span><span class="lang-en">English /
-                                    Arabic</span></span></p>
-                        <p><span class="lang-ar">سنة النشر : </span><span class="lang-en">Publication Year:
-                            </span><span>2002</span></p>
+                        <p><span class="lang-ar">المؤلف : </span><span class="lang-en">Author: </span><span><span class="lang-ar">فوزي محمد كريم</span><span class="lang-en">Fawzi Mohammed Karim</span></span></p>
+                        <p><span class="lang-ar">اللغة : </span><span class="lang-en">Language: </span><span><span class="lang-ar">الإنجليزية / العربية</span><span class="lang-en">English / Arabic</span></span></p>
+                        <p><span class="lang-ar">سنة النشر : </span><span class="lang-en">Publication Year: </span><span>2002</span></p>
                         <p>ISBN : <span class="isbn">9948408217</span></p>
-                        <p><span class="lang-ar">عدد الصفحات : </span><span class="lang-en">Pages: </span><span><span
-                                    class="lang-ar">148 صفحة</span><span class="lang-en">148 Pages</span></span></p>
+                        <p><span class="lang-ar">عدد الصفحات : </span><span class="lang-en">Pages: </span><span><span class="lang-ar">148 صفحة</span><span class="lang-en">148 Pages</span></span></p>
                     </div>
                     <div class="book-desc">
-                        <span class="lang-ar">دليل علمي للنباتات البرية المزهرة في الإمارات، يعرف بأنواع كثيرة من
-                            النباتات مع صور ووصف يساعد على التعرف عليها في البيئة الصحراوية.</span>
-                        <span class="lang-en">A scientific guide to wild flowering plants in the UAE, introducing many
-                            plant species with images and descriptions that help identify them in the desert
-                            environment.</span>
+                        <span class="lang-ar">دليل علمي للنباتات البرية المزهرة في الإمارات، يعرف بأنواع كثيرة من النباتات مع صور ووصف يساعد على التعرف عليها في البيئة الصحراوية.</span>
+                        <span class="lang-en">A scientific guide to wild flowering plants in the UAE, introducing many plant species with images and descriptions that help identify them in the desert environment.</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <section class="bottom-section fade-in">
+<section class="bottom-section fade-in">
         <div class="bottom-logo">
             <img src="https://i.imgur.com/EFpsR4T.png" alt="شعار براري أبوظبي" class="lang-ar">
             <img src=" https://i.imgur.com/bUlCJpZ.png" alt="Barari Abu Dhabi Logo" class="lang-en">
         </div>
-
+        
         <div class="footer-content" style="max-width: 800px; margin: 0 auto 30px auto;">
             <p style="color: var(--text-dim); font-size: 16px; line-height: 1.8;">
-                <span class="lang-ar">نلتزم في "براري أبوظبي" بتوثيق وحماية التراث الطبيعي والثقافي لإمارة أبوظبي. نسعى
-                    لنشر الوعي البيئي والمحافظة على استدامة حياتنا البرية للأجيال القادمة.</span>
-                <span class="lang-en">At "Barari Abu Dhabi", we are committed to documenting and protecting the natural
-                    and cultural heritage of Abu Dhabi. We strive to spread environmental awareness and preserve the
-                    sustainability of our wildlife for future generations.</span>
+                <span class="lang-ar">نلتزم في "براري أبوظبي" بتوثيق وحماية التراث الطبيعي والثقافي لإمارة أبوظبي. نسعى لنشر الوعي البيئي والمحافظة على استدامة حياتنا البرية للأجيال القادمة.</span>
+                <span class="lang-en">At "Barari Abu Dhabi", we are committed to documenting and protecting the natural and cultural heritage of Abu Dhabi. We strive to spread environmental awareness and preserve the sustainability of our wildlife for future generations.</span>
             </p>
         </div>
 
-        <div class="bottom-date"
-            style="font-size: 12px; border-top: 1px solid rgba(154, 123, 92, 0.2); padding-top: 20px; max-width: 600px; margin: 0 auto;">
-            <span class="lang-ar">جميع الحقوق محفوظة &copy; 2026 <a
-                    href="https://www.instagram.com/raffak.ae?igsh=MXBuMml1bWl3MDl1NQ%3D%3D&utm_source=qr"
-                    target="_blank"
-                    style="color: var(--accent-color); text-decoration: none; font-weight: bold; transition: color 0.3s ease;">رفك</a></span>
-            <span class="lang-en">All Rights Reserved &copy; 2026 <a
-                    href="https://www.instagram.com/raffak.ae?igsh=MXBuMml1bWl3MDl1NQ%3D%3D&utm_source=qr"
-                    target="_blank"
-                    style="color: var(--accent-color); text-decoration: none; font-weight: bold; transition: color 0.3s ease;">Raffak</a></span>
+        <div class="bottom-date" style="font-size: 12px; border-top: 1px solid rgba(154, 123, 92, 0.2); padding-top: 20px; max-width: 600px; margin: 0 auto;">
+            <span class="lang-ar">جميع الحقوق محفوظة &copy; 2026 <a href="https://www.instagram.com/raffak.ae?igsh=MXBuMml1bWl3MDl1NQ%3D%3D&utm_source=qr" target="_blank" style="color: var(--accent-color); text-decoration: none; font-weight: bold; transition: color 0.3s ease;">رفك</a></span>
+            <span class="lang-en">All Rights Reserved &copy; 2026 <a href="https://www.instagram.com/raffak.ae?igsh=MXBuMml1bWl3MDl1NQ%3D%3D&utm_source=qr" target="_blank" style="color: var(--accent-color); text-decoration: none; font-weight: bold; transition: color 0.3s ease;">Raffak</a></span>
         </div>
     </section>
 
@@ -831,7 +390,7 @@
                 <line x1="23" y1="1" x2="1" y2="23"></line>
             </svg>
         `;
-
+        
         const unmuteSvg = `
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
                 <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
@@ -843,20 +402,20 @@
         function toggleAudio() {
             const video = document.getElementById("bgVideo");
             const iconContainer = document.getElementById("audioIcon");
-
+            
             if (video.muted) {
                 video.muted = false;
-                iconContainer.innerHTML = unmuteSvg;
+                iconContainer.innerHTML = unmuteSvg; 
             } else {
                 video.muted = true;
-                iconContainer.innerHTML = muteSvg;
+                iconContainer.innerHTML = muteSvg; 
             }
         }
 
         function openFullscreen() {
             // هنا التعديل: نطلب تكبير عنصر الفيديو نفسه بدل القسم كامل
             const video = document.getElementById("bgVideo");
-
+            
             if (video.requestFullscreen) {
                 video.requestFullscreen();
             } else if (video.webkitRequestFullscreen) {
@@ -864,7 +423,7 @@
             } else if (video.msRequestFullscreen) {
                 video.msRequestFullscreen();
             }
-
+            
             // عشان يشتغل الصوت لما يكبر الفيديو
             if (video.muted) {
                 video.muted = false;
@@ -878,5 +437,4 @@
         document.querySelectorAll('.fade-in').forEach((element) => { observer.observe(element); });
     </script>
 </body>
-
 </html>
